@@ -25,18 +25,3 @@ public class BookStoreTest  {
         List<String> title = booksTitle.stream().map(BooksObjects::getTitle).collect(Collectors.toList());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,21 +25,7 @@ abstract public class SeleniumSettings { //BaseSeleniumTest
     }
     @After
     public void tearDown(){
+        driver.close();
         driver.quit();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
