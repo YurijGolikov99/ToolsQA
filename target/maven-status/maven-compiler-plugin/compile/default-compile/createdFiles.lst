@@ -1,7 +1,0 @@
-org/example/pages/LoginPage.class
-org/example/Main.class
-org/example/driver/SeleniumSettings.class
-org/example/api/BooksObjects.class
-org/example/data/TestValues.class
-org/example/driver/SeleniumDriver.class
-org/example/pages/BookStore.class
