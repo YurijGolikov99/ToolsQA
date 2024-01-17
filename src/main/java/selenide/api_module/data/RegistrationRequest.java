@@ -1,4 +1,4 @@
-package selenide.api.boock_store_application;
+package selenide.api_module.data;
 
 //обычно так выглядит регистрация https://demoqa.com/swagger/#/Account/AccountV1UserPost
 //всегда менять лучше переменные с публичных на приватные

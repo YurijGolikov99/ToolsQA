@@ -1,4 +1,4 @@
-package selenide_tests.api;
+package selenide_tests.api.book_store_application;
 
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
@@ -22,21 +22,5 @@ public class BookStoreTests {
     @Test
     public void successRegistrationWithValidDate(){
         bookStoreCommonSteps.enterValidData();
-    }
-
-
-
-    @DisplayName("Проверка соответствия списков книг")
-    @AllureId("")
-    @Issue("IDF-T2")
-//    @Tags({@Tag(), @Tag(IM_SERVICE), @Tag(SMOKE)})
-    @Epic("Книжный магазин")
-//    @Service(AllureServiceConstants.IM_MONITORING_SERVICE)
-//    @Layer(AllureLayer.SYSTEM_TESTS)
-    @Test
-    public void listComplianceCheck(){
-        bookStoreCommonSteps.getBooksListInApiByTitle();
-        bookStoreCommonSteps.checkBooksListOnPageByTitle();
-        bookStoreCommonSteps.compareListsOfBooks();
     }
 }

@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.$x;
  */
 
 public class BookStorePage {
-
     private final SelenideElement gitPocketGuideBookTitle = $x("//span[@id='see-book-Git Pocket Guide']");
     private final SelenideElement learningJavaScriptDesigTitle = $x("//span[@id='see-book-Learning JavaScript Design Patterns']");
     private final SelenideElement designingEvolvableWebAPIsTitle = $x("//span[@id='see-book-Designing Evolvable Web APIs with ASP.NET']");

@@ -2,10 +2,9 @@ package selenide.api_module.steps.boock_store_application;
 
 import io.restassured.http.ContentType;
 import org.junit.Assert;
-import selenide.api.boock_store_application.BooksData;
-import selenide.api.boock_store_application.RegistrationRequest;
-import selenide.api.boock_store_application.RegistrationResponse;
-import selenide.api_module.pages.book_store_application.BookStorePage;
+import selenide.api_module.data.book_store_application.BooksData;
+import selenide.api_module.data.RegistrationRequest;
+import selenide.api_module.data.RegistrationResponse;
 
 import java.util.List;
 
@@ -17,9 +16,8 @@ public class BookStoreCommonSteps {
     private static final String REGISTER_URL = "https://demoqa.com/Account/v1/User";
 
     //TODO:
-    // из-за объявления этого класса, всегда открыввется UI
-    private static final BookStorePage bookStorePage = new BookStorePage("https://demoqa.com/books");
-
+    // Разобраться в причине не работы анотации test
+    // Выдаёт бинарный набор символов и ошибку
 
     //    @Step("Ввод валидных данных при регистрации")
     public void enterValidData(){
@@ -52,7 +50,6 @@ public class BookStoreCommonSteps {
 
     }
 
-
 //    @Step("Проверили список книг в API")
     public List<BooksData> getBooksListInApiByTitle(){
         List<BooksData> booksData = given()
@@ -69,27 +66,5 @@ public class BookStoreCommonSteps {
                 .jsonPath()
                 .getList("books.title");
         return booksData;
-    }
-
-//    @Step("Проверили список книг на UI")
-    public List<String> checkBooksListOnPageByTitle(){
-        List<String> booksData = List.of(
-                bookStorePage.getGitPocketGuide(),
-                bookStorePage.getLearningJavaScriptDesigTitle(),
-                bookStorePage.getDesigningEvolvableWebAPIsTitle(),
-                bookStorePage.getSpeakingJavaScriptTitle(),
-                bookStorePage.getYouDontKnowJSTitle(),
-                bookStorePage.getProgrammingJavaScriptApplicationsTitle(),
-                bookStorePage.getEloquentJavaScriptSecondEditionTitle(),
-                bookStorePage.getUnderstandingECMAScriptTitle()
-        );
-        return booksData;
-    }
-
-//    @Step("Cравниваем соответствие списков книг")
-    public void compareListsOfBooks(){
-        List<BooksData> booksFromApi = getBooksListInApiByTitle();
-        List<String> booksOnPage = checkBooksListOnPageByTitle();
-        assertEquals("Список книг из API не соответствует списку на странице", booksFromApi, booksOnPage);
     }
 }

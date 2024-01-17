@@ -1,4 +1,4 @@
-package selenium_tests.api;
+package selenium_tests.api.book_store_application;
 
 
 import io.restassured.http.ContentType;
