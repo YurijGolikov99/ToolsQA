@@ -1,4 +1,4 @@
-package selenide.api_module.pages.book_store_application;
+package selenide.ui_module.pages.book_store_application;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;

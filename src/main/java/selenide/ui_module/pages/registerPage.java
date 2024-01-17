@@ -1,4 +1,4 @@
-package selenide.api_module.pages;
+package selenide.ui_module.pages;
 
 /**
  *5.Элементы страницы boockStoreApplication

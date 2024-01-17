@@ -1,4 +1,4 @@
-package selenide.api_module.pages;
+package selenide.ui_module.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;

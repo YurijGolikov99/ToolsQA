@@ -1,6 +1,6 @@
 package selenide.ui_module.steps.book_store_application;
 
-import selenide.api_module.pages.book_store_application.BookStorePage;
+import selenide.ui_module.pages.book_store_application.BookStorePage;
 import selenide.api_module.data.book_store_application.BooksData;
 import selenide.api_module.steps.boock_store_application.BookStoreCommonSteps;
 
