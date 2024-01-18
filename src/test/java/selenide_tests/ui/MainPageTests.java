@@ -1,6 +1,7 @@
 package selenide_tests.ui;
 
 import org.junit.Test;
+import selenide.api_module.constants.UiEndpoints;
 import selenide.api_module.driver.DriverProvider;
 import selenide.ui_module.pages.MainPage;
 
@@ -11,7 +12,7 @@ import selenide.ui_module.pages.MainPage;
 //DriverManager - будет открываться и закрываться каждый раз браузер
 //DriverProvider - всё будет прогоняться сплошными тестами в одном окне
 public class MainPageTests extends DriverProvider { //DriverManager или DriverProvider
-    public final static String BASE_URL = "https://demoqa.com";
+    public final static String BASE_URL = UiEndpoints.BASE.getUrl();
     private final MainPage mainPage = new MainPage(BASE_URL);
 
     @Test

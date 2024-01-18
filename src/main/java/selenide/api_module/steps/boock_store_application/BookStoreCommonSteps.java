@@ -2,6 +2,7 @@ package selenide.api_module.steps.boock_store_application;
 
 import io.restassured.http.ContentType;
 import org.junit.Assert;
+import selenide.api_module.constants.ApiEndpoints;
 import selenide.api_module.data.book_store_application.BooksData;
 import selenide.api_module.data.RegistrationRequest;
 import selenide.api_module.data.RegistrationResponse;
@@ -12,12 +13,8 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class BookStoreCommonSteps {
-    private static final String BOOKSTORE_URL = "https://demoqa.com/BookStore/v1/Books";
-    private static final String REGISTER_URL = "https://demoqa.com/Account/v1/User";
-
-    //TODO:
-    // Разобраться в причине не работы анотации test
-    // Выдаёт бинарный набор символов и ошибку
+    private static final String BOOKSTORE_URL = ApiEndpoints.BOOKSTORE.getUrl();
+    private static final String REGISTER_URL = ApiEndpoints.REGISTER.getUrl();
 
     //    @Step("Ввод валидных данных при регистрации")
     public void enterValidData(){
