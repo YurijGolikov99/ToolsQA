@@ -32,6 +32,7 @@ public class BookStorePage {
 //        return "Wrong book!";
 //    }
 //    или более сложным способом через тернарный оператор
+
     public String getGitPocketGuide(){
         return gitPocketGuideBookTitle.getText();//equals("Git Pocket Guide") ? "Right book!" : "Wrong book!";
     }

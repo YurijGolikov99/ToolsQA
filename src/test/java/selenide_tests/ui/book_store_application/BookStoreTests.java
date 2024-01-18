@@ -14,7 +14,6 @@ public class BookStoreTests {
     private final BookStoreCommonStepsUI bookStoreCommonStepsUI = new BookStoreCommonStepsUI();
     @Test
     public void loginWithValidDate(){
-//hfghgf
     }
 
     @Test
