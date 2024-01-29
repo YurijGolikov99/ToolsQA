@@ -37,8 +37,8 @@ public class BookStoreCommonSteps {
     }
 
     //или можно вторым способом
-    public void enterNotvalidData(){
-        Specifications.instalSpecification(Specifications.requestSpecification(REGISTER_URL), Specifications.responseSpecificationOk(REGISTER_URL));
+    public void enterNotValidData(){
+        Specifications.installSpecification(Specifications.requestSpecification(REGISTER_URL), Specifications.responseSpecificationOk(REGISTER_URL));
     }
 
     public void generateTokenForUser(){

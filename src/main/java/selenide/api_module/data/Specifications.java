@@ -7,7 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-//создали спецификацию/инструкцию  по запросу и ответу
+//создали спецификацию/инструкцию по запросу и ответу
 public class Specifications {
 
     //базовая спецификация к запросу на JSON
@@ -26,7 +26,7 @@ public class Specifications {
     }
 
     //установка спецификаций
-    public static void instalSpecification(RequestSpecification request, ResponseSpecification response){
+    public static void installSpecification(RequestSpecification request, ResponseSpecification response){
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
     }

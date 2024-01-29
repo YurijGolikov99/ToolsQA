@@ -6,10 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="IDF_Technology_Test" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="IDF_Technology_Test" target="20" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -15,7 +15,7 @@ public class BookStoreCommonStepsUI {
     private final BookStorePage bookStorePage = new BookStorePage(BOOKS_URL);
 
     //TODO:
-    // Разобраться в причине не работы анотации test
+    // Разобраться в причине не работы аннотации test
     // Выдаёт бинарный набор символов и ошибку
 
 //    @Step("Проверили список книг на UI")
@@ -33,7 +33,7 @@ public class BookStoreCommonStepsUI {
         return booksData;
     }
 
-//    @Step("Cравниваем соответствие списков книг")
+//    @Step("Сравниваем соответствие списков книг")
     public void compareListsOfBooks(){
         List<BooksData> booksFromApi = bookStoreCommonSteps.getBooksListInApiByTitle();
         List<String> booksOnPage = checkBooksListOnPageByTitle();
