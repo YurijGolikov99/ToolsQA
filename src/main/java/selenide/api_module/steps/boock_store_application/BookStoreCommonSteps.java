@@ -3,6 +3,7 @@ package selenide.api_module.steps.boock_store_application;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import selenide.api_module.constants.ApiEndpoints;
+import selenide.api_module.data.Specifications;
 import selenide.api_module.data.book_store_application.BooksData;
 import selenide.api_module.data.RegistrationRequest;
 import selenide.api_module.data.RegistrationResponse;
@@ -33,6 +34,11 @@ public class BookStoreCommonSteps {
                 .as(RegistrationResponse.class);
         Assert.assertNotNull(success.getUserID());
         assertEquals("Имя пользователя не соответствует", testUser.getUserName(), success.getUsername());
+    }
+
+    //или можно вторым способом
+    public void enterNotvalidData(){
+        Specifications.instalSpecification(Specifications.requestSpecification(REGISTER_URL), Specifications.responseSpecificationOk(REGISTER_URL));
     }
 
     public void generateTokenForUser(){
