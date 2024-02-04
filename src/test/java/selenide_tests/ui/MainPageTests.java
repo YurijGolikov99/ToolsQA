@@ -2,7 +2,7 @@ package selenide_tests.ui;
 
 import org.junit.Test;
 import selenide.api_module.constants.UiEndpoints;
-import selenide.api_module.driver.DriverProvider;
+import selenide.common_module.driver.DriverProvider;
 import selenide.ui_module.pages.MainPage;
 
 /**

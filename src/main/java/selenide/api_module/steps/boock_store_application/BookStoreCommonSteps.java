@@ -3,7 +3,7 @@ package selenide.api_module.steps.boock_store_application;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import selenide.api_module.constants.ApiEndpoints;
-import selenide.api_module.data.Specifications;
+import selenide.common_module.Specifications;
 import selenide.api_module.data.book_store_application.BooksData;
 import selenide.api_module.data.RegistrationRequest;
 import selenide.api_module.data.RegistrationResponse;
