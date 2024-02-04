@@ -1,17 +1,17 @@
-package selenide.api_module.driver;
+package selenide.common_module.driver;
 
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static selenide.api_module.data.Global.CHROME_NAME;
-import static selenide.api_module.data.Global.FIREFOX_NAME;
-import static selenide.api_module.data.Global.SAFARI_NAME;
-import static selenide.api_module.data.Global.WEBDRIVER_TYPE;
-import static selenide.api_module.utils.TimeOuts.ELEMENT_TIMEOUT;
-import static selenide.api_module.utils.TimeOuts.PAGE_LOAD_TIMEOUT;
+import static selenide.common_module.Global.CHROME_NAME;
+import static selenide.common_module.Global.FIREFOX_NAME;
+import static selenide.common_module.Global.SAFARI_NAME;
+import static selenide.common_module.Global.WEBDRIVER_TYPE;
+import static selenide.common_module.utils.TimeOuts.ELEMENT_TIMEOUT;
+import static selenide.common_module.utils.TimeOuts.PAGE_LOAD_TIMEOUT;
 
-//4 создали порядок и настройки объявления веб-драйвера
+//7 создали порядок и настройки объявления веб-драйвера
 public class DriverFactory {
 
     static WebDriver launchDriver() {

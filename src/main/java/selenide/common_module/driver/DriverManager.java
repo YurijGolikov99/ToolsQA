@@ -1,4 +1,4 @@
-package selenide.api_module.driver;
+package selenide.common_module.driver;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

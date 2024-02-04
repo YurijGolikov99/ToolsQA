@@ -1,8 +1,9 @@
-package selenide.api_module.data;
+package selenide.common_module;
 
 
-import selenide.api_module.property.PropertyHelper;
+import selenide.common_module.property.PropertyHelper;
 
+//5 Создали глобальные константы и настройки
 public class Global {
 
     public static final String OS_NAME = System.getProperty("os.name");

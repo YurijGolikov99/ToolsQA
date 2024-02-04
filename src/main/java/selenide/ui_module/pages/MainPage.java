@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 /**
- * 2.Элементы главной страница Demoqa.com
+ * 2.Эллементы главной страница Demoqa.com
  */
 
 public class MainPage {

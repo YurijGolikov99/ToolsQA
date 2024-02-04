@@ -1,4 +1,4 @@
-package selenide.api_module.data;
+package selenide.common_module;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;

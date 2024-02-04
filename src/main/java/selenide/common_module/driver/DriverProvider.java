@@ -1,8 +1,8 @@
-package selenide.api_module.driver;
+package selenide.common_module.driver;
 
 import org.openqa.selenium.WebDriver;
 
-//5 создаём механизм для получения управления и завершения работы
+//8 создаём механизм для получения управления и завершения работы
 // с единственным экземпляром веб-драйвера в приложении
 public class DriverProvider {
 
