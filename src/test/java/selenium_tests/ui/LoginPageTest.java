@@ -1,11 +1,11 @@
 package selenium_tests.ui;
 
-import selenium.data.Credentials;
-import selenium.driver.BaseSeleniumTest;
+import selenium.common_module.data.Credentials;
+import selenium.common_module.driver.BaseSeleniumTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
-import selenium.pages.bookStoreApplication.BookStorePage;
+import selenium.ui_module.pages.book_store_application.BookStorePage;
 
 public class LoginPageTest extends BaseSeleniumTest {
     protected static final Logger LOGGER = LogManager.getLogger();

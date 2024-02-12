@@ -1,6 +1,6 @@
-package selenium.pages;
+package selenium.ui_module.pages;
 
-import selenium.driver.BaseSeleniumPage;
+import selenium.common_module.driver.BaseSeleniumPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,9 +12,11 @@ public class LoginPage extends BaseSeleniumPage {
     private WebElement passwordField;
     @FindBy(xpath =  "//button[@id=\"login\"]")
     private WebElement loginButton;
+
     public LoginPage() {
         PageFactory.initElements(driver, this);
     }
+
     public LoginPage auth(String userName, String password){
         userNameField.sendKeys(userName);
         passwordField.sendKeys(password);

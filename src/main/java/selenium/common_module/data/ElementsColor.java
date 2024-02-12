@@ -1,4 +1,4 @@
-package selenium.data;
+package selenium.common_module.data;
 
 public enum ElementsColor {
     BLUE_DEGREE("#007bff");
