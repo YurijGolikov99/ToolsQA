@@ -1,4 +1,4 @@
-package selenium.data;
+package selenium.common_module.data;
 
 public class Credentials {
     public static String TEST_USERNAME  = "YurecAQA";

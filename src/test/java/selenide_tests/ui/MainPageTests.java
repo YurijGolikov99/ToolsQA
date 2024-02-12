@@ -1,12 +1,12 @@
 package selenide_tests.ui;
 
 import org.junit.Test;
-import selenide.api_module.constants.UiEndpoints;
+import selenide.ui_module.constants.UiEndpoints;
 import selenide.common_module.driver.DriverProvider;
 import selenide.ui_module.pages.MainPage;
 
 /**
- *3.Тесты главной страницы
+ *3. Тесты главной страницы
  */
 
 //DriverManager - будет открываться и закрываться каждый раз браузер

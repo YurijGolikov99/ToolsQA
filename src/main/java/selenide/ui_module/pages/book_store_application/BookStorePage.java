@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 /**
- *4.Элементы страницы boockStoreApplication
+ *4. Элементы страницы bookStoreApplication
  */
 
 public class BookStorePage {

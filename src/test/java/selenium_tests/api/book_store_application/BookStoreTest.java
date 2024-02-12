@@ -4,7 +4,7 @@ package selenium_tests.api.book_store_application;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import org.junit.Test;
-import selenium.api.BooksObjects;
+import selenium.api_module.data.book_store_application.BooksObjects;
 
 import java.util.List;
 import java.util.stream.Collectors;
