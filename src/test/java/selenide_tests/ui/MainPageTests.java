@@ -13,6 +13,8 @@ import selenide.ui_module.pages.MainPage;
 //DriverProvider - всё будет прогоняться сплошными тестами в одном окне
 public class MainPageTests extends DriverProvider { //DriverManager или DriverProvider
     public final static String BASE_URL = UiEndpoints.BASE.getUrl();
+
+    //вызывается конструктор, с помощью использования ключевого слова new.
     private final MainPage mainPage = new MainPage(BASE_URL);
 
     @Test
