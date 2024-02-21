@@ -16,7 +16,7 @@ public class MainPage {
     private final SelenideElement interactionsButton = $x("(//div[@class='card mt-4 top-card'])[5]");
     private final SelenideElement bookStoreApplicationButton = $x("(//div[@class='card mt-4 top-card'])[6]");
 
-
+    //создали конструктору страницы, который настраивает наш класс
     public MainPage(String url){
         Selenide.open(url);
     }
