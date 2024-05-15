@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
     <Appenders>
-        <Console target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss} %-5level %class.%method{36} - %msg%n"/>
+        <Console name="Console">
+            <File name="File" fileName="target/logs/logsHistory.log">
+                <PatternLayout>
+                    <Pattern>%d %p %c{2} [%t] %l %m%n</Pattern>
+                </PatternLayout>
+            </File>
         </Console>
     </Appenders>
     <Loggers>
-        <Root level="all">
+        <Root level="trace">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
         </Root>
     </Loggers>
 </Configuration>

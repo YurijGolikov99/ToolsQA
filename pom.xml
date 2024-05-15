@@ -11,12 +11,13 @@
     <!-- тег <properties> не обязателен, просто так будет удобнее
       в будущем менять версии зависимостей -->
     <properties>
+        <!-- версия LATEST подходит для подгрузки последней версии -->
         <maven.compiler.source>20</maven.compiler.source>
         <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <encoding>UTF-8</encoding>
         <maven.compiler.version>3.8.1</maven.compiler.version>
-        <allure.version>2.24.0</allure.version>
+        <allure.version>2.25.0</allure.version>
         <webdrivermanager.version>5.6.2</webdrivermanager.version>
         <slf4j.version>2.0.9</slf4j.version>
         <selenium.version>4.15.0</selenium.version>
@@ -29,7 +30,7 @@
         <allure-junit5.version>2.24.0</allure-junit5.version>
         <logging.log4j.version>2.21.1</logging.log4j.version>
         <config.version>1.4.3</config.version>
-        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
         <junit-platform-surefire-provider.version>1.1.0</junit-platform-surefire-provider.version>
         <aspectj.version>1.9.6</aspectj.version>
     </properties>
@@ -117,6 +118,12 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${logging.log4j.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
