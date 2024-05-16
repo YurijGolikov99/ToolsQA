@@ -7,6 +7,7 @@ import selenium.common_module.driver.BaseSeleniumPage;
 import selenium.ui_module.pages.LoginPage;
 
 public class BookStorePage extends BaseSeleniumPage {
+
     @FindBy(xpath = "//button[@id=\"login\"]")
     private WebElement loginButton;
     @FindBy(xpath = "//span/a")

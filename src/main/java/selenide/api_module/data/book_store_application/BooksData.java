@@ -4,6 +4,7 @@ import java.util.Date;
 
 //конвертируем JSON в Java на сайте POJO https://json2csharp.com/code-converters/json-to-pojo и копируем сюда
 public class BooksData {
+
     //переменные делаются приватными, согласна правилам ООП
     private String isbn;
     private String title;

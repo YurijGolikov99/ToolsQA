@@ -8,6 +8,7 @@ import org.junit.Test;
 import selenium.ui_module.pages.book_store_application.BookStorePage;
 
 public class LoginPageTest extends BaseSeleniumTest {
+
     protected static final Logger LOGGER = LogManager.getLogger();
 
     @Test

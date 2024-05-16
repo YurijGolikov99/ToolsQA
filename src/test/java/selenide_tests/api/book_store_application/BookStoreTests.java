@@ -27,8 +27,8 @@ public class BookStoreTests {
     }
 
     @Test
-    public void testUnSuccessRegistrationWithValidDate(){
-        bookStoreCommonSteps.enterNotValidData();
+    public void testSuccessRegistrationWithValidDate2(){
+        bookStoreCommonSteps.enterValidData2();
     }
 
     @Test

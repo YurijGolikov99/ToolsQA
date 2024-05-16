@@ -1,9 +1,10 @@
-package selenide.api_module.data;
+package selenide.api_module.data.Registartion;
 
 import java.util.ArrayList;
 
 //2 response (получаем) <-
 public class RegistrationResponse {
+
     public String userID;
     public String username;
     public ArrayList<Object> books;

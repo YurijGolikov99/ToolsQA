@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Selenide.$x;
  */
 
 public class MainPage {
+
     private final SelenideElement elementsButton = $x("(//div[@class='card mt-4 top-card'])[1]");
     private final SelenideElement formsButton = $x("(//div[@class='card mt-4 top-card'])[2]");
     private final SelenideElement alertFrameWindowsButton = $x("(//div[@class='card mt-4 top-card'])[3]");

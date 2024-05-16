@@ -3,6 +3,7 @@ package selenium.api_module.data.book_store_application;
 import java.util.Date;
 
 abstract public class BooksObjects {
+
     private String isbn;
     private String title;
     private String subTitle;
@@ -12,6 +13,7 @@ abstract public class BooksObjects {
     private Integer pages;
     private String description;
     private String website;
+
     public BooksObjects(String isbn,
                         String title,
                         String subTitle,

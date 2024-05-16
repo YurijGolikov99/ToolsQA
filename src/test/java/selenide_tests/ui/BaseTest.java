@@ -11,6 +11,7 @@ import java.util.List;
 
 import static selenide.common_module.property.PropertyHelper.getProperty;
 
+// от этого класса должны наследоваться другие тестовые классы
 public class BaseTest {
 
     protected final Logger logger = LogManager.getRootLogger();
