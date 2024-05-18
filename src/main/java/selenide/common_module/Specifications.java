@@ -33,6 +33,24 @@ public class Specifications {
                 .build();
     }
 
+    public static ResponseSpecification responseSpecificationCreated(String url){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(201)
+                .build();
+    }
+
+    public static ResponseSpecification responseSpecificationBadRequest(String url){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(400)
+                .build();
+    }
+
+    public static ResponseSpecification responseSpecificationNotFound(String url){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(404)
+                .build();
+    }
+
     //установка спецификаций
     public static void installSpecification(RequestSpecification request, ResponseSpecification response){
         RestAssured.requestSpecification = request;

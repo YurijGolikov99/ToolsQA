@@ -6,6 +6,7 @@ import java.util.Date;
 public class BooksData {
 
     //переменные делаются приватными, согласна правилам ООП
+    //название переменных должно быть такое же как и в теле
     private String isbn;
     private String title;
     private String subTitle;

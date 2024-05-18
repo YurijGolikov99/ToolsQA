@@ -18,6 +18,18 @@ public class LoginPage extends BaseSeleniumPage {
         PageFactory.initElements(driver, this);
     }
 
+    public WebElement getUserNameField(){
+        return userNameField;
+    }
+
+    public WebElement getPasswordField(){
+        return passwordField;
+    }
+
+    public WebElement getLoginButton(){
+        return loginButton;
+    }
+
     public LoginPage auth(String userName, String password){
         userNameField.sendKeys(userName);
         passwordField.sendKeys(password);

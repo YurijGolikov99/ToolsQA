@@ -15,25 +15,19 @@ public class BookStorePage extends BaseSeleniumPage {
 
 
     public BookStorePage() {
-        driver.get("https://demoqa.com/books");
         PageFactory.initElements(driver, this);
+    }
+
+    public WebElement getLoginButton(){
+        return loginButton;
+    }
+
+    public WebElement getBookTitles(){
+        return bookTitles;
     }
 
     public LoginPage openLoginPage(){
         loginButton.click();
         return new LoginPage();
     }
-
-    /*
-    private WebDriver driver;
-
-    public BookStorePage(String url){
-        this.driver = DriverProvider.getDriver();
-        this.driver.get(url);
-        PageFactory.initElements(driver, this);
-    }
-
-    private final WebElement gitPocketGuideBookTitle = (By.xpath("//span[@id='see-book-Git Pocket Guide']"));
-
-     */
 }

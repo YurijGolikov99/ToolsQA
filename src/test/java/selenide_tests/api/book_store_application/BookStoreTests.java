@@ -15,7 +15,7 @@ public class BookStoreTests {
 
     //перед повторным запуском, стоит удалить пользователя
     @DisplayName("Успешная регистрация с валидными данными")
-    @AllureId("")
+    @AllureId("1")
     @Issue("IDF-T3")
     @Tags({@Tag("UI"), @Tag("IM_SERVICE"), @Tag("SMOKE")})
     @Epic("Книжный магазин")
@@ -23,12 +23,17 @@ public class BookStoreTests {
 //    @Layer(AllureLayer.SYSTEM_TESTS)
     @Test
     public void testSuccessRegistrationWithValidDate(){
-        bookStoreCommonSteps.enterValidData();
+        bookStoreCommonSteps.enterValidDataDuringRegistration();
     }
 
     @Test
     public void testSuccessRegistrationWithValidDate2(){
-        bookStoreCommonSteps.enterValidData2();
+        bookStoreCommonSteps.enterValidDataDuringRegistrationWithSpec();
+    }
+
+    @Test
+    public void testUnSuccessRegistration(){
+        bookStoreCommonSteps.enterInvalidDataDuringRegistration();
     }
 
     @Test

@@ -13,21 +13,26 @@ abstract public class BaseSeleniumTest {
     protected WebDriver driver;
 
     @Before
-    public void setUp(){
+    public void launchDriver() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage()
-                .window().maximize();
+                .window().maximize(); //открываем во весь экран браузер
         driver.manage()
-                .timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+                .timeouts().pageLoadTimeout(10, TimeUnit.SECONDS); //ожидание загрузки страницы до 10 сек
         driver.manage()
-                .timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                .timeouts().implicitlyWait(10, TimeUnit.SECONDS); //ожидание загрузки эллемента, зависит от скорости элемента
         BaseSeleniumPage.setDriver(driver);
     }
 
     @After
-    public void tearDown(){
-        driver.close();
-        driver.quit();
+    public void tearDown() {
+        if (driver != null) {
+            driver.close();
+            // Закрывает текущее активное окно браузера, в котором выполняется WebDriver.
+            driver.quit();
+            //Закрывает все окна браузера, которые были открыты WebDriver'ом в течение сессии.
+            //Завершает работу WebDriver и освобождает все используемые ресурсы.
+        }
     }
 }

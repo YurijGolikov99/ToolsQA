@@ -18,21 +18,22 @@
         <encoding>UTF-8</encoding>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <allure.version>2.25.0</allure.version>
-        <webdrivermanager.version>5.6.2</webdrivermanager.version>
-        <slf4j.version>2.0.9</slf4j.version>
-        <selenium.version>4.15.0</selenium.version>
-        <selenide.version>7.0.1</selenide.version>
+        <webdrivermanager.version>5.8.0</webdrivermanager.version>
+        <selenium.version>4.20.0</selenium.version>
+        <selenide.version>7.3.1</selenide.version>
         <junit.version>4.13.2</junit.version>
-        <junit-jupiter.version>5.10.0</junit-jupiter.version>
-        <test.ng.version>7.8.0</test.ng.version>
-        <rest-assured.version>5.3.0</rest-assured.version>
-        <alluretestng.version>2.24.0</alluretestng.version>
-        <allure-junit5.version>2.24.0</allure-junit5.version>
-        <logging.log4j.version>2.21.1</logging.log4j.version>
+        <junit-jupiter.version>5.10.2</junit-jupiter.version>
+        <test.ng.version>7.10.2</test.ng.version>
+        <rest-assured.version>5.4.0</rest-assured.version>
+        <alluretestng.version>2.27.0</alluretestng.version>
+        <allure-junit5.version>2.27.0</allure-junit5.version>
+        <slf4j.version>2.0.13</slf4j.version>
+        <logging.log4j.version>2.23.1</logging.log4j.version>
         <config.version>1.4.3</config.version>
-        <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <junit-platform-surefire-provider.version>1.1.0</junit-platform-surefire-provider.version>
         <aspectj.version>1.9.6</aspectj.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
     </properties>
 
     <dependencyManagement>
@@ -53,13 +54,6 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -117,6 +111,13 @@
             <version>${allure-junit5.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -139,6 +140,7 @@
     </dependencies>
 
     <build>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -149,6 +151,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                 </configuration>
+                <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
@@ -157,10 +160,11 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${allure-maven.version}</version>
                 <configuration>
                     <reportVersion>2.6.0</reportVersion>
                 </configuration>
