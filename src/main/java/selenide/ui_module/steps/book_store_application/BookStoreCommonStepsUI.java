@@ -1,40 +1,31 @@
 package selenide.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
-import selenide.api_module.data.book_store_application.BooksData;
-import selenide.api_module.steps.boock_store_application.BookStoreCommonSteps;
-import selenide.ui_module.constants.UiEndpoints;
 import selenide.ui_module.pages.book_store_application.BookStorePage;
 
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 public class BookStoreCommonStepsUI {
 
-    private static final String BOOKS_URL = UiEndpoints.BOOKS.getUrl();
-    private final BookStoreCommonSteps bookStoreCommonSteps = new BookStoreCommonSteps();
-    private final BookStorePage bookStorePage = new BookStorePage(BOOKS_URL);
 
-    @Step("Проверили список книг на UI")
-    public List<String> checkBooksListOnPageByTitle(){
-        List<String> booksData = List.of(
-                bookStorePage.getGitPocketGuide(),
-                bookStorePage.getLearningJavaScriptDesigTitle(),
-                bookStorePage.getDesigningEvolvableWebAPIsTitle(),
-                bookStorePage.getSpeakingJavaScriptTitle(),
-                bookStorePage.getYouDontKnowJSTitle(),
-                bookStorePage.getProgrammingJavaScriptApplicationsTitle(),
-                bookStorePage.getEloquentJavaScriptSecondEditionTitle(),
-                bookStorePage.getUnderstandingECMAScriptTitle()
-        );
-        return booksData;
+    private final BookStorePage bookStorePage = new BookStorePage();
+
+    @Step("Открыть страницу логин")
+    public void openLoginPage(){
+        bookStorePage.getLoginButton().click();
     }
 
-    @Step("Сравниваем соответствие списков книг")
-    public void compareListsOfBooks(){
-        List<BooksData> booksFromApi = bookStoreCommonSteps.getBooksListInApiByTitle();
-        List<String> booksOnPage = checkBooksListOnPageByTitle();
-        assertEquals("Список книг из API не соответствует списку на странице", booksFromApi, booksOnPage);
+    @Step("Найти книгу Git Pocket Guide")
+    public String getGitPocketGuideEasy(){
+        String bookName = bookStorePage.getGitPocketGuideTitle();
+        if ("Git Pocket Guide".equals(bookName)) {
+            return "Right book!";
+        }
+        return "Wrong book!";
+    }
+
+    //или более сложным способом через тернарный оператор
+    @Step("Найти книгу Git Pocket Guide")
+    public String getGitPocketGuide(){
+        return bookStorePage.getGitPocketGuideTitle().equals("Git Pocket Guide") ? "Right book!" : "Wrong book!";
     }
 }

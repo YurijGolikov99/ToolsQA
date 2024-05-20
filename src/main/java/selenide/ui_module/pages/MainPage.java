@@ -22,32 +22,33 @@ public class MainPage {
         Selenide.open(url);
     }
 
-    //тоже самое что и выше
+    //тоже самое, что и выше
     public void openWebSite(String url){
         Selenide.open(url);
     }
 
-    public void clickOnElementsButton(){
-        elementsButton.click();
+    // Геттеры для элементов страницы
+    public SelenideElement getElementsButton(){
+        return elementsButton;
     }
 
-    public void clickOnFormsButton(){
-        formsButton.click();
+    public SelenideElement getFormsButton(){
+        return formsButton;
     }
 
-    public void clickOnAlertFrameWindowsButton(){
-        alertFrameWindowsButton.click();
+    public SelenideElement getAlertFrameWindowsButton(){
+        return alertFrameWindowsButton;
     }
 
-    public void clickOnWidgetsButton(){
-        widgetsButton.click();
+    public SelenideElement getWidgetsButton(){
+        return widgetsButton;
     }
 
-    public void clickOnInteractionsButton(){
-        interactionsButton.click();
+    public SelenideElement getInteractionsButton(){
+        return interactionsButton;
     }
 
-    public void clickOnBookStoreApplication(){
-        bookStoreApplicationButton.click();
+    public SelenideElement getBookStoreApplicationButton(){
+        return bookStoreApplicationButton.scrollTo();
     }
 }

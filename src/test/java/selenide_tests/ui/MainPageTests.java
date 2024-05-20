@@ -2,7 +2,7 @@ package selenide_tests.ui;
 
 import org.junit.Test;
 import selenide.ui_module.constants.UiEndpoints;
-import selenide.ui_module.pages.MainPage;
+import selenide.ui_module.steps.MainPageSteps;
 
 /**
  *3. Тесты главной страницы
@@ -15,35 +15,35 @@ public class MainPageTests  { //DriverManager или DriverProvider
     public final static String BASE_URL = UiEndpoints.BASE_URL.getUrl();
 
     //вызывается конструктор, с помощью использования ключевого слова new.
-    private final MainPage mainPage = new MainPage(BASE_URL);
+    private final MainPageSteps mainPageSteps = new MainPageSteps();
 
     @Test
     public void openElementsPage(){
-        mainPage.clickOnElementsButton();
+        mainPageSteps.clickElementsButton();
     }
 
     @Test
     public void openFormsPage(){
-        mainPage.clickOnFormsButton();
+        mainPageSteps.clickFormsButton();
     }
 
     @Test
     public void openAlertFrameWindowsPage(){
-        mainPage.clickOnAlertFrameWindowsButton();
+        mainPageSteps.clickAlertFrameWindowsButton();
     }
 
     @Test
     public void openWidgetsPage(){
-        mainPage.clickOnWidgetsButton();
+        mainPageSteps.clickWidgetsButton();
     }
 
     @Test
     public void openInteractionsPage(){
-        mainPage.clickOnInteractionsButton();
+        mainPageSteps.clickInteractionsButton();
     }
 
     @Test
     public void openBookStoreApplicationPage(){
-        mainPage.clickOnBookStoreApplication();
+        mainPageSteps.clickBookStoreApplication();
     }
 }

@@ -35,7 +35,7 @@ public class LoginPageTest extends BaseSeleniumTest {
 
         mainPageWithFindBY.openBookStore();
         bookStorePageSteps.openLoginPage();
-        logger.info("Starting validAuthorisation test...");
+        logger.info("Starting validAuthorisation test");
         loginPageSteps.auth(Credentials.TEST_USERNAME, Credentials.TEST_PASSWORD);
         logger.info("validAuthorisation test finished.");
     }

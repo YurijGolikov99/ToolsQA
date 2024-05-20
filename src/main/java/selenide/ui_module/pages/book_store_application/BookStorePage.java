@@ -9,8 +9,9 @@ import static com.codeborne.selenide.Selenide.$x;
  *4. Элементы страницы bookStoreApplication
  */
 
-public class BookStorePage {
+public class BookStorePage  {
 
+    private final SelenideElement loginButton = $x("//button[@id=\"login\"]");
     private final SelenideElement gitPocketGuideBookTitle = $x("//span[@id='see-book-Git Pocket Guide']");
     private final SelenideElement learningJavaScriptDesigTitle = $x("//span[@id='see-book-Learning JavaScript Design Patterns']");
     private final SelenideElement designingEvolvableWebAPIsTitle = $x("//span[@id='see-book-Designing Evolvable Web APIs with ASP.NET']");
@@ -21,25 +22,19 @@ public class BookStorePage {
     private final SelenideElement eloquentJavaScriptSecondEditionTitle = $x("//span[@id='see-book-Eloquent JavaScript, Second Edition']");
     private final SelenideElement understandingECMAScriptTitle = $x("//span[@id='see-book-Understanding ECMAScript 6']");
 
-    // создали конструктор
-    public BookStorePage(String url) {
+    public void openPage(String url) {
         Selenide.open(url);
     }
 
-//    public String getGitPocketGuideEasy(){
-//        String bookName = gitPocketGuideBookTitle.getText();
-//        if ("Git Pocket Guide".equals(bookName)) {
-//            return "Right book!";
-//        }
-//        return "Wrong book!";
-//    }
-//    или более сложным способом через тернарный оператор
+    public SelenideElement getLoginButton(){
+        return loginButton;
+    }
 
-    public String getGitPocketGuide(){
+    public String getGitPocketGuideTitle(){
         return gitPocketGuideBookTitle.getText();//equals("Git Pocket Guide") ? "Right book!" : "Wrong book!";
     }
 
-    public String getLearningJavaScriptDesigTitle() {
+    public String getLearningJavaScriptDesignTitle() {
         return learningJavaScriptDesigTitle.getText();
     }
 
