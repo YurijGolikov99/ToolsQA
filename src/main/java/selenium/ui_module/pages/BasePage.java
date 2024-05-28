@@ -1,4 +1,4 @@
-package selenide.ui_module.pages;
+package selenium.ui_module.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

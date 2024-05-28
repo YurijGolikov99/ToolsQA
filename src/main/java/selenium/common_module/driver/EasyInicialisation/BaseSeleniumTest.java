@@ -1,4 +1,4 @@
-package selenium.common_module.driver;
+package selenium.common_module.driver.EasyInicialisation;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
+//Простой вариант: 2 настройка selenium test
 abstract public class BaseSeleniumTest {
 
     protected WebDriver driver;

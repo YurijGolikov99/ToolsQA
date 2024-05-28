@@ -23,13 +23,16 @@
         <selenide.version>7.3.1</selenide.version>
         <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
-        <test.ng.version>7.10.2</test.ng.version>
+        <testng.version>7.10.2</testng.version>
         <rest-assured.version>5.4.0</rest-assured.version>
-        <alluretestng.version>2.27.0</alluretestng.version>
+        <allure-testng.version>2.27.0</allure-testng.version>
         <allure-junit5.version>2.27.0</allure-junit5.version>
-        <slf4j.version>2.0.13</slf4j.version>
+        <slf4j-simple.version>2.0.13</slf4j-simple.version>
         <logging.log4j.version>2.23.1</logging.log4j.version>
         <config.version>1.4.3</config.version>
+        <poi.version>5.2.5</poi.version>
+        <poi-ooxml.version>5.2.5</poi-ooxml.version>
+        <poi-ooxml-schemas.version>4.1.2</poi-ooxml-schemas.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <junit-platform-surefire-provider.version>1.1.0</junit-platform-surefire-provider.version>
         <aspectj.version>1.9.6</aspectj.version>
@@ -88,7 +91,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>${test.ng.version}</version>
+            <version>${testng.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -102,7 +105,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>${alluretestng.version}</version>
+            <version>${allure-testng.version}</version>
         </dependency>
 
         <dependency>
@@ -115,7 +118,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
+            <version>${slf4j-simple.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
@@ -136,6 +139,28 @@
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
             <version>${config.version}</version>
+        </dependency>
+
+        <!-- Чтобы читать данные из Word/Excel/Doc файлов -->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi-ooxml.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>${poi-ooxml-schemas.version}</version>
         </dependency>
     </dependencies>
 

@@ -3,8 +3,7 @@ package selenium.ui_module.pages.book_store_application;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenium.common_module.driver.BaseSeleniumPage;
-import selenium.ui_module.pages.LoginPage;
+import selenium.common_module.driver.EasyInicialisation.BaseSeleniumPage;
 
 public class BookStorePage extends BaseSeleniumPage {
 

@@ -14,7 +14,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class BookStoreCommonStepsNoPojo {
+public class BookStoreRegistrationCommonStepsNoPojo {
 
     private static final String REGISTER_URL = ApiEndpoints.REGISTER_PAGE.getUrl();
 

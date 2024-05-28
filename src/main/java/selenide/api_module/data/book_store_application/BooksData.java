@@ -3,6 +3,23 @@ package selenide.api_module.data.book_store_application;
 import java.util.Date;
 
 //конвертируем JSON в Java на сайте POJO https://json2csharp.com/code-converters/json-to-pojo и копируем сюда
+/**
+ * {
+ *   "books": [
+ *     {
+ *       "isbn": "string",
+ *       "title": "string",
+ *       "subTitle": "string",
+ *       "author": "string",
+ *       "publish_date": "2024-05-21T07:14:24.428Z",
+ *       "publisher": "string",
+ *       "pages": 0,
+ *       "description": "string",
+ *       "website": "string"
+ *     }
+ *   ]
+ * }
+ */
 public class BooksData {
 
     //переменные делаются приватными, согласна правилам ООП
@@ -17,7 +34,7 @@ public class BooksData {
     private String description;
     private String website;
 
-    //создаём конструктор и геттеры для каждой книги, чтобы получать интересующие нас данные
+    //создаём конструктор
     public BooksData(String isbn, String title, String subTitle,
                      String author, Date publish_date, String publisher,
                      Integer pages, String description, String website) {
@@ -32,6 +49,7 @@ public class BooksData {
         this.website = website;
     }
 
+    // Создаём геттеры для каждой книги, чтобы получать интересующие нас данные
     public String getIsbn() {
         return isbn;
     }

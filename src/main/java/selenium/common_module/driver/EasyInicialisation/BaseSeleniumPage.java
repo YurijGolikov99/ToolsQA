@@ -1,7 +1,8 @@
-package selenium.common_module.driver;
+package selenium.common_module.driver.EasyInicialisation;
 
 import org.openqa.selenium.WebDriver;
 
+//Простой вариант: 1 настройка selenium page
 abstract public class BaseSeleniumPage {
 
     protected static WebDriver driver;

@@ -17,7 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 //степы с POJO классами связанные
-public class BookStoreCommonSteps {
+public class BookStoreRegistrationCommonSteps {
 
     private static final String BOOKSTORE_URL = ApiEndpoints.BOOKSTORE_PAGE.getUrl();
     private static final String REGISTER_URL = ApiEndpoints.REGISTER_PAGE.getUrl();
@@ -26,7 +26,6 @@ public class BookStoreCommonSteps {
     private static final String PASSWORD = Credentials.USER_PASSWORD.getProperty();
     private static final String WRONG_LOGIN = Credentials.WRONG_LOGIN.getProperty();
     private static final String WRONG_PASSWORD = Credentials.WRONG_PASSWORD.getProperty();
-
 
     private static final ThreadLocal<String> userID = new ThreadLocal<>();
 
