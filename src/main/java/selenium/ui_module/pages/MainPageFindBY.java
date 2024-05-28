@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenium.common_module.driver.BaseSeleniumPage;
+import selenium.common_module.driver.EasyInicialisation.BaseSeleniumPage;
 import selenium.common_module.property.PropertyHelper;
 
-public class MainPageWithFindBY extends BaseSeleniumPage {
+public class MainPageFindBY extends BaseSeleniumPage {
 
     protected final Logger logger = LogManager.getRootLogger();
 
@@ -26,14 +26,13 @@ public class MainPageWithFindBY extends BaseSeleniumPage {
     @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[6]")
     private WebElement bookStoreApplicationButton;
 
-
-    public MainPageWithFindBY(){
+    public MainPageFindBY(){
         logger.info("Open page");
         driver.get(PropertyHelper.getProperty("base.url"));
         PageFactory.initElements(driver, this);
     }
 
-    public MainPageWithFindBY openBookStore(){
+    public MainPageFindBY openBookStore(){
         bookStoreApplicationButton.click();
         return this;
     }

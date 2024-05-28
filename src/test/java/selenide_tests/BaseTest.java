@@ -1,4 +1,4 @@
-package selenide_tests.ui;
+package selenide_tests;
 
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;

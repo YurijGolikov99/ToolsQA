@@ -7,11 +7,11 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import selenide.api_module.steps.boock_store_application.BookStoreCommonSteps;
+import selenide.api_module.steps.boock_store_application.BookStoreRegistrationCommonSteps;
 
-public class BookStoreTests {
+public class BookStoreRegistrationTests {
 
-    private final BookStoreCommonSteps bookStoreCommonSteps = new BookStoreCommonSteps();
+    private final BookStoreRegistrationCommonSteps bookStoreCommonSteps = new BookStoreRegistrationCommonSteps();
 
     //перед повторным запуском, стоит удалить пользователя
     @DisplayName("Успешная регистрация с валидными данными")

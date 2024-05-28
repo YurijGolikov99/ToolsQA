@@ -7,14 +7,14 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import selenide.api_module.steps.boock_store_application.BookStoreCommonSteps;
+import selenide.api_module.steps.boock_store_application.BookStoreRegistrationCommonSteps;
 import selenide.ui_module.constants.UiEndpoints;
 import selenide.ui_module.pages.book_store_application.BookStorePage;
 import selenide.ui_module.steps.book_store_application.BookStoreStepsUI;
 
 public class BookStoreTestsUi {
 
-    private final BookStoreCommonSteps bookStoreCommonSteps = new BookStoreCommonSteps();
+    private final BookStoreRegistrationCommonSteps bookStoreCommonSteps = new BookStoreRegistrationCommonSteps();
     private final BookStoreStepsUI bookStoreStepsUI = new BookStoreStepsUI();
     private final BookStorePage bookStorePage = new BookStorePage();
 

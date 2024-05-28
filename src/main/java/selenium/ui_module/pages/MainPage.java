@@ -1,24 +1,31 @@
 package selenium.ui_module.pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import selenium.common_module.driver.BaseSeleniumPage;
+import org.openqa.selenium.support.FindBy;
 
-public class MainPage extends BaseSeleniumPage {
+public class MainPage extends BasePage {
 
     //указали путь до элементов
-    private final By elementsButton = By.xpath("(//div[@class='card mt-4 top-card'])[1]");
-    private final By formsButton = By.xpath("(//div[@class='card mt-4 top-card'])[2]");
-    private final By alertFrameWindowsButton = By.xpath("(//div[@class='card mt-4 top-card'])[3]");
-    private final By widgetsButton = By.xpath("(//div[@class='card mt-4 top-card'])[4]");
-    private final By interactionsButton = By.xpath("(//div[@class='card mt-4 top-card'])[5]");
-    private final By bookStoreApplicationButton = By.xpath("(//div[@class='card mt-4 top-card'])[6]");
+    @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[1]")
+    private WebElement elementsButton;
+    @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[2]")
+    private WebElement formsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[3]")
+    private WebElement alertFrameWindowsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[4]")
+    private WebElement widgetsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[5]")
+    private WebElement interactionsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[6]")
+    private WebElement bookStoreApplicationButton;
 
-    //поиск элементом по пути выше но он сразу будет их искать
-    private WebElement elementsButtonElement = driver.findElement(elementsButton);
-    private WebElement formsButtonElement = driver.findElement(formsButton);
-    private WebElement alertFrameWindowsButtonElement = driver.findElement(alertFrameWindowsButton);
-    private WebElement widgetsButtonElement = driver.findElement(widgetsButton);
-    private WebElement interactionsButtonElement = driver.findElement(interactionsButton);
-    private WebElement bookStoreApplicationButtonElement = driver.findElement(bookStoreApplicationButton);
+    public MainPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public MainPage openBookStore(){
+        bookStoreApplicationButton.click();
+        return this;
+    }
 }

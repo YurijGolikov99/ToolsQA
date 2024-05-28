@@ -3,6 +3,12 @@ package selenide.api_module.data.Registartion;
 //обычно так выглядит регистрация https://demoqa.com/swagger/#/Account/AccountV1UserPost
 //всегда менять лучше переменные с публичных на приватные
 //1 request (отправляем) ->
+/**
+ * {
+ *   "userName": "string",
+ *   "password": "string"
+ * }
+ */
 public class RegistrationRequest {
 
     private String userName;
