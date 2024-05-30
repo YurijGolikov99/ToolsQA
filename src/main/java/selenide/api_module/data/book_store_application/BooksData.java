@@ -85,4 +85,41 @@ public class BooksData {
     public String getWebsite() {
         return website;
     }
+
+    // Создаём геттеры для каждой книги, чтобы ...
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setPublish_date(Date publish_date) {
+        this.publish_date = publish_date;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public void setPages(Integer pages) {
+        this.pages = pages;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
 }

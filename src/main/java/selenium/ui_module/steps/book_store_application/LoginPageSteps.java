@@ -1,9 +1,13 @@
 package selenium.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import selenium.ui_module.pages.book_store_application.LoginPage;
 
 public class LoginPageSteps {
+
+    protected static final Logger logger = LogManager.getLogger();
 
     private final LoginPage loginPage = new LoginPage();
 
