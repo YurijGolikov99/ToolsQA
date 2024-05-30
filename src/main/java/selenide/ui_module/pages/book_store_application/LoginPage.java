@@ -1,6 +1,6 @@
 package selenide.ui_module.pages.book_store_application;
 
-import selenide.common_module.driver.BaseSeleniumPage;
+import selenide.common_module.driver.easy_initialization.BaseSeleniumPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;

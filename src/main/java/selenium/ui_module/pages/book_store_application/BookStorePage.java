@@ -17,7 +17,7 @@ public class BookStorePage  {
     private final SelenideElement learningJavaScriptDesigTitle = $x("//span[@id='see-book-Learning JavaScript Design Patterns']");
     private final SelenideElement designingEvolvableWebAPIsTitle = $x("//span[@id='see-book-Designing Evolvable Web APIs with ASP.NET']");
     private final SelenideElement speakingJavaScriptTitle = $x("//span[@id='see-book-Speaking JavaScript']");
-    //дичь, которая не ищет эллемент с одинарными кавычками)))
+    //дичь, которая не ищет элемент с одинарными кавычками)))
     private final SelenideElement youDontKnowJSTitle = $x("//span[@id=\"see-book-You Don't Know JS\"]");
     private final SelenideElement programmingJavaScriptApplicationsTitle = $x("//span[@id='see-book-Programming JavaScript Applications']");
     private final SelenideElement eloquentJavaScriptSecondEditionTitle = $x("//span[@id='see-book-Eloquent JavaScript, Second Edition']");
