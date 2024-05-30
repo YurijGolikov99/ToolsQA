@@ -2,6 +2,7 @@ package selenium.ui_module.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +12,7 @@ import selenium.common_module.property.PropertyHelper;
 public class MainPageFindBY extends BaseSeleniumPage {
 
     protected final Logger logger = LogManager.getRootLogger();
-
+    private WebDriver driver;
     //указали путь до элементов
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[1]")
     private WebElement elementsButton;
@@ -27,6 +28,7 @@ public class MainPageFindBY extends BaseSeleniumPage {
     private WebElement bookStoreApplicationButton;
 
     public MainPageFindBY(){
+        this.driver = BaseSeleniumPage.driver;
         logger.info("Open page");
         driver.get(PropertyHelper.getProperty("base.url"));
         PageFactory.initElements(driver, this);

@@ -1,4 +1,4 @@
-package selenide.api_module.data.Registartion;
+package selenide.api_module.data.book_store_application;
 
 /**
  * {

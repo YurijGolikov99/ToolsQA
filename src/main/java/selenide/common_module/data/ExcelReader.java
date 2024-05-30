@@ -15,8 +15,9 @@ public class ExcelReader {
     private final String excelFilePath;
     private XSSFSheet sheet;
     private XSSFWorkbook book;
+    private String sheetName;
 
-    //создали конструктор, который обработает путь к файлу и данные в нем
+    //создали конструктор, который обработает путь к файлу и данные в нем на листе1
     public ExcelReader(String excelFilePath) throws IOException {
         this.excelFilePath = excelFilePath;
         File file = new File(excelFilePath);
@@ -30,8 +31,10 @@ public class ExcelReader {
     }
 
     //сделали перегрузку прошлого метода (добавили второй параметр в методе)
+    //чтобы уже от руки вводить название листа
     public ExcelReader(String excelFilePath, String sheetName) throws IOException {
         this.excelFilePath = excelFilePath;
+        this.sheetName = sheetName;
         File file = new File(excelFilePath);
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
@@ -93,7 +96,7 @@ public class ExcelReader {
         return data;
     }
 
-    public String[][] getSheetDataForTDD(String sheetName) throws Exception {
+    public String[][] getCustomSheetDataForTDD() throws Exception {
         File file = new File(excelFilePath);
         FileInputStream fileInputStream = new FileInputStream(file);
         book = new XSSFWorkbook(fileInputStream);

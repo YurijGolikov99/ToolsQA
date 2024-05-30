@@ -4,9 +4,9 @@ import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import selenide.api_module.constants.ApiEndpoints;
-import selenide.api_module.data.Registartion.BadRegistrationResponse;
-import selenide.api_module.data.Registartion.RegistrationRequest;
-import selenide.api_module.data.Registartion.RegistrationResponse;
+import selenide.api_module.data.book_store_application.BadRegistrationResponse;
+import selenide.api_module.data.book_store_application.RegistrationRequest;
+import selenide.api_module.data.book_store_application.RegistrationResponse;
 import selenide.api_module.data.book_store_application.BooksData;
 import selenide.common_module.Specifications;
 import selenide.common_module.data.Credentials;
@@ -16,7 +16,7 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-//степы с POJO классами связанные
+//шаги связанные с POJO классами
 public class BookStoreRegistrationCommonSteps {
 
     private static final String BOOKSTORE_URL = ApiEndpoints.BOOKSTORE_PAGE.getUrl();

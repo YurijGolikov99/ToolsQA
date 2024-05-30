@@ -1,6 +1,4 @@
-package selenide.api_module.data.Registartion;
-
-import selenide.api_module.data.book_store_application.BooksData;
+package selenide.api_module.data.book_store_application;
 
 import java.util.ArrayList;
 

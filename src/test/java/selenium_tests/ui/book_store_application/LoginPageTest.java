@@ -20,8 +20,8 @@ public class LoginPageTest extends BaseSeleniumTest {
         MainPageFindBY mainPageFindBY = new MainPageFindBY();
         BookStorePage bookStorePage = new BookStorePage();
 
-        mainPageFindBY.openBookStore();
         logger.info("Starting validAuthorisation test...");
+        mainPageFindBY.openBookStore();
         bookStorePage.openLoginPage()
                 .auth(Credentials.TEST_USERNAME, Credentials.TEST_PASSWORD);
         logger.info("validAuthorisation test finished.");
@@ -34,9 +34,9 @@ public class LoginPageTest extends BaseSeleniumTest {
         LoginPageSteps loginPageSteps = new LoginPageSteps();
         BookStorePageSteps bookStorePageSteps = new BookStorePageSteps();
 
+        logger.info("Starting validAuthorisation test");
         mainPageWithFindBY.openBookStore();
         bookStorePageSteps.openLoginPage();
-        logger.info("Starting validAuthorisation test");
         loginPageSteps.auth(Credentials.TEST_USERNAME, Credentials.TEST_PASSWORD);
         logger.info("validAuthorisation test finished.");
     }
