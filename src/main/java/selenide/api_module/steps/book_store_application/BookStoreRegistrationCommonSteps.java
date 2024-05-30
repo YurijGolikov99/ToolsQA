@@ -28,7 +28,7 @@ public class BookStoreRegistrationCommonSteps {
 
     private static final ThreadLocal<String> userID = new ThreadLocal<>();
 
-    // если версия java compiler будет другая а не 11, nо аннотация будет приводить к ошибке
+    // если версия java compiler будет другая а не 11, то аннотация будет приводить к ошибке
     @Step("Ввод валидных данных при регистрации")
     public void enterValidDataDuringRegistration(){
         RegistrationRequest testUser = new RegistrationRequest(LOGIN, PASSWORD);

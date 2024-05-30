@@ -1,8 +1,6 @@
 package selenium.ui_module.pages.book_store_application;
 
-import com.codeborne.selenide.SelenideElement;
-
-import static com.codeborne.selenide.Selenide.$x;
+import org.openqa.selenium.By;
 
 // TODO переделать под селениум,
 //  так как здесь всё в корне на селениде держится
@@ -11,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$x;
  */
 public class RegisterPage {
 
-    public final SelenideElement firstNameField = $x("//");
-    public final SelenideElement lastNameField = $x("//");
-    public final SelenideElement userNameField = $x("//");
-    public final SelenideElement passwordField = $x("//");
+    public final By firstNameField = By.id("//");
+    public final By lastNameField = By.id("//");
+    public final By userNameField = By.id("//");
+    public final By passwordField = By.id("//");
 
 }
