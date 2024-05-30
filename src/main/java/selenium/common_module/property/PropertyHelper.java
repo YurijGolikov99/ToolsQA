@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 
-// Создали класс для чтения значений из файла свойств в формате key-value.
+//4 Создали класс для чтения значений из файла свойств в формате key-value.
 // В данном случае файл свойств называется "project_data.properties"
 public class PropertyHelper {
 

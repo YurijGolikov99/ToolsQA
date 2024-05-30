@@ -1,20 +1,17 @@
 package selenium.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import selenium.ui_module.pages.book_store_application.LoginPage;
+import selenium.ui_module.pages.book_store_application.LogInPage;
 
 public class LoginPageSteps {
 
-    protected static final Logger logger = LogManager.getLogger();
+    private final LogInPage loginInPage = new LogInPage();
 
-    private final LoginPage loginPage = new LoginPage();
-
-    @Step("Залогиниться с валидными данными")
-    public void auth(String userName, String password){
-        loginPage.getUserNameField().sendKeys(userName);
-        loginPage.getPasswordField().sendKeys(password);
-        loginPage.getLoginButton().click();
+    @Step()
+    public void authorisation(String userName, String password){
+        loginInPage.getUserNameField().sendKeys(userName);
+        loginInPage.getPasswordField().sendKeys(password);
+        loginInPage.getLoginButton().scrollTo();
+        loginInPage.getLoginButton().click();
     }
 }
