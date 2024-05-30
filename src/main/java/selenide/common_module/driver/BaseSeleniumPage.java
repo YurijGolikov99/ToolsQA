@@ -1,4 +1,4 @@
-package selenide.common_module.driver.EasyInicialisation;
+package selenide.common_module.driver;
 
 import org.openqa.selenium.WebDriver;
 

@@ -1,10 +1,10 @@
-package selenium.api_module.steps.boock_store_application;
+package selenide.api_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import selenium.api_module.constants.ApiEndpoints;
+import selenide.api_module.constants.ApiEndpoints;
 import selenium.common_module.Specifications;
 import selenium.common_module.data.Credentials;
 
@@ -16,7 +16,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class BookStoreRegistrationCommonStepsNoPojo {
 
-    private static final String REGISTER_URL = ApiEndpoints.REGISTER_PAGE.getUrl();
 
     private static final String LOGIN = Credentials.USER_LOGIN.getProperty();
     private static final String PASSWORD = Credentials.USER_PASSWORD.getProperty();
@@ -24,15 +23,15 @@ public class BookStoreRegistrationCommonStepsNoPojo {
     private static final String WRONG_PASSWORD = Credentials.WRONG_PASSWORD.getProperty();
 
     public void enterValidDataDuringRegistrationWithSpec(){
-        Specifications.installSpecification(Specifications.requestSpecification(REGISTER_URL),
-                Specifications.responseSpecificationCreated(REGISTER_URL));
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getRegisterUrl()),
+                Specifications.responseSpecificationCreated(ApiEndpoints.getRegisterUrl()));
         Map<String, String> user = new HashMap<>();
         user.put("userName", LOGIN);
         user.put("password", PASSWORD);
         Response response = given()
                 .body(user)
                 .when()
-                .post(REGISTER_URL)
+                .post(ApiEndpoints.getRegisterUrl())
                 .then()
                 .log()
                 .all()
@@ -46,15 +45,15 @@ public class BookStoreRegistrationCommonStepsNoPojo {
 
     @Step("Ввод невалидных данных при регистрации")
     public void enterInvalidDataDuringRegistration(){
-        Specifications.installSpecification(Specifications.requestSpecification(REGISTER_URL),
-                Specifications.responseSpecificationBadRequest(REGISTER_URL));
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getRegisterUrl()),
+                Specifications.responseSpecificationBadRequest(ApiEndpoints.getRegisterUrl()));
         Map<String, String> user = new HashMap<>();
         user.put("userName", WRONG_LOGIN);
         user.put("password", WRONG_PASSWORD);
         given()
                 .body(user)
                 .when()
-                .post(REGISTER_URL)
+                .post(ApiEndpoints.getRegisterUrl())
                 .then()
                 .log()
                 .all()

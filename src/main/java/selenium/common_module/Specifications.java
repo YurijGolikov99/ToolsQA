@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static selenium.common_module.logs.LoggerHelper.info;
 
-
 //создали спецификацию/инструкцию по запросу и ответу
 public class Specifications {
 

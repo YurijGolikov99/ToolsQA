@@ -1,4 +1,4 @@
-package selenium.common_module.data;
+package selenium.common_module.constants;
 
 //Енумы с названиями листов Excel, надо менять если название листа изменилось
 public enum ExcelPageNumber {

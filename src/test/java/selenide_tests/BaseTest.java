@@ -1,35 +1,32 @@
 package selenide_tests;
 
+import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import selenide.common_module.driver.HardInicialisation.DriverProvider;
-import selenide.common_module.property.PropertyHelper;
+import selenium.common_module.Specifications;
+import selenium.common_module.constants.PropertyPath;
+import selenium.common_module.property.PropertyHelper;
 
+import java.util.List;
+
+import static selenium.common_module.property.PropertyHelper.getProperty;
+
+// от этого класса должны наследоваться другие тестовые классы
 public class BaseTest {
 
     protected final Logger logger = LogManager.getRootLogger();
 
-    private final String START_URL = PropertyHelper.getProperty("start.url");
+    private final String BASE_URL = PropertyHelper.getProperty("base.url");
 
-    @BeforeSuite
-    public void beforeSuit() {
-        System.setProperty("log4j.configurationFile", PropertyHelper.getProperty("log.config.file"));
-    }
+    private final Specifications specifications = new Specifications();
 
-    @BeforeClass
-    public void beforeClass() {
-        WebDriver driver = DriverProvider.getDriver();
-        logger.info("Open url: " + START_URL);
-        driver.get(START_URL);
-    }
-
-    @AfterSuite
-    public void afterSuite() {
-        logger.info("Tear down driver");
-        DriverProvider.tearDown();
+    //для параметризованных тестов
+    protected Response sendGetRequest(String paramName, String booksName) {
+        try {
+            return specifications.httpGetRequestWithQueryParameters(getProperty(PropertyPath.BASE_URL.getPath()), paramName, List.of(booksName));
+        } catch (Exception e) {
+            logger.error("Failed to send GET request: {}", e.getMessage());
+            throw new RuntimeException("Failed to send GET request", e);
+        }
     }
 }

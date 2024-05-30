@@ -2,7 +2,7 @@ package selenium.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
 import selenium.api_module.data.book_store_application.BooksData;
-import selenium.api_module.steps.boock_store_application.BookStoreRegistrationCommonSteps;
+import selenium.api_module.steps.book_store_application.BookStoreRegistrationCommonSteps;
 import selenium.ui_module.pages.book_store_application.BookStorePage;
 
 import java.util.List;

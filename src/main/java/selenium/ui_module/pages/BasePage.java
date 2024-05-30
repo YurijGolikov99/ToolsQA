@@ -1,11 +1,11 @@
-package selenide.ui_module.pages;
+package selenium.ui_module.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import selenide.common_module.driver.HardInicialisation.DriverProvider;
+import selenium.common_module.driver.hard_initialization.DriverProvider;
 
 import java.time.Duration;
 

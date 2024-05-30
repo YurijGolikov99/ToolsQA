@@ -3,8 +3,10 @@ package selenide.ui_module.pages.book_store_application;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenide.common_module.driver.EasyInicialisation.BaseSeleniumPage;
+import selenide.common_module.driver.BaseSeleniumPage;
 
+
+// TODO переделать под selenide
 public class BookStorePage extends BaseSeleniumPage {
 
     @FindBy(xpath = "//button[@id=\"login\"]")

@@ -1,4 +1,4 @@
-package selenide.common_module.driver.HardInicialisation;
+package selenium.common_module.driver.hard_initialization;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

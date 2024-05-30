@@ -1,13 +1,13 @@
-package selenium.api_module.steps.boock_store_application;
+package selenide.api_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
-import selenium.api_module.constants.ApiEndpoints;
+import selenide.api_module.constants.ApiEndpoints;
 import selenium.api_module.data.book_store_application.BadRegistrationResponse;
+import selenium.api_module.data.book_store_application.BooksData;
 import selenium.api_module.data.book_store_application.RegistrationRequest;
 import selenium.api_module.data.book_store_application.RegistrationResponse;
-import selenium.api_module.data.book_store_application.BooksData;
 import selenium.common_module.Specifications;
 import selenium.common_module.data.Credentials;
 
@@ -19,8 +19,7 @@ import static org.junit.Assert.assertEquals;
 //шаги связанные с POJO классами
 public class BookStoreRegistrationCommonSteps {
 
-    private static final String BOOKSTORE_URL = ApiEndpoints.BOOKSTORE_PAGE.getUrl();
-    private static final String REGISTER_URL = ApiEndpoints.REGISTER_PAGE.getUrl();
+    private static ApiEndpoints apiEndpoints = new ApiEndpoints();
 
     private static final String LOGIN = Credentials.USER_LOGIN.getProperty();
     private static final String PASSWORD = Credentials.USER_PASSWORD.getProperty();
@@ -37,7 +36,7 @@ public class BookStoreRegistrationCommonSteps {
                 .body(testUser)
                 .when()
                 .contentType(ContentType.JSON)
-                .post(REGISTER_URL)
+                .post(ApiEndpoints.getRegisterUrl())
                 .then()
                 .assertThat()
                 .statusCode(201)
@@ -59,13 +58,13 @@ public class BookStoreRegistrationCommonSteps {
     //или можно вторым способом с использованием спецификаций
     @Step("Ввод валидных данных при регистрации")
     public void enterValidDataDuringRegistrationWithSpec(){
-        Specifications.installSpecification(Specifications.requestSpecification(REGISTER_URL),
-                Specifications.responseSpecificationCreated(REGISTER_URL));
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getRegisterUrl()),
+                Specifications.responseSpecificationCreated(ApiEndpoints.getRegisterUrl()));
         RegistrationRequest testUser = new RegistrationRequest(LOGIN, PASSWORD);
         RegistrationResponse successResponse = given()
                 .body(testUser)
                 .when()
-                .post(REGISTER_URL)
+                .post(ApiEndpoints.getRegisterUrl())
                 .then()
                 .assertThat()
                 .log()
@@ -79,13 +78,13 @@ public class BookStoreRegistrationCommonSteps {
 
     @Step("Ввод невалидных данных при регистрации")
     public void enterInvalidDataDuringRegistration(){
-        Specifications.installSpecification(Specifications.requestSpecification(REGISTER_URL),
-                Specifications.responseSpecificationBadRequest(REGISTER_URL));
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getRegisterUrl()),
+                Specifications.responseSpecificationBadRequest(ApiEndpoints.getRegisterUrl()));
         RegistrationRequest testUser = new RegistrationRequest(WRONG_LOGIN, WRONG_PASSWORD);
         BadRegistrationResponse unSuccessResponse = given()
                 .body(testUser)
                 .when()
-                .post(REGISTER_URL)
+                .post(ApiEndpoints.getRegisterUrl())
                 .then()
                 .assertThat()
                 .log()
@@ -117,7 +116,7 @@ public class BookStoreRegistrationCommonSteps {
         List<BooksData> booksData = given()
                 .when()
                 .contentType(ContentType.JSON)
-                .get(BOOKSTORE_URL)
+                .get(ApiEndpoints.getBookStoreUrl())
                 .then()
                 .assertThat()
                 .statusCode(200)

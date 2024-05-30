@@ -1,10 +1,11 @@
 package selenide.ui_module.pages.book_store_application;
 
-import selenide.common_module.driver.EasyInicialisation.BaseSeleniumPage;
+import selenide.common_module.driver.BaseSeleniumPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+// TODO переделать под selenide
 public class LoginPage extends BaseSeleniumPage {
 
     @FindBy(xpath = "//input[@id=\"userName\"]")

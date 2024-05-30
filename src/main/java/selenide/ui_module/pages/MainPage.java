@@ -1,10 +1,10 @@
 package selenide.ui_module.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MainPage extends BasePage {
+// TODO переделать под selenide
+public class MainPage  {
 
     //указали путь до элементов
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[1]")
@@ -20,9 +20,6 @@ public class MainPage extends BasePage {
     @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[6]")
     private WebElement bookStoreApplicationButton;
 
-    public MainPage(WebDriver driver) {
-        super(driver);
-    }
 
     public MainPage openBookStore(){
         bookStoreApplicationButton.click();

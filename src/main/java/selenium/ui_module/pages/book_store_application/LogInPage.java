@@ -4,7 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-
+// TODO переделать под селениум,
+//  так как здесь всё в корне на селениде держится
 /**
  *6.Элементы страницы LogIn
  */

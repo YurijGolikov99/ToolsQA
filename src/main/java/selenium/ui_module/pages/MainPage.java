@@ -4,10 +4,11 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
+// TODO переделать под селениум,
+//  так как здесь всё в корне на селениде держится
 /**
  * 2.Эллементы главной страница Demoqa.com
  */
-
 public class MainPage {
 
     private final SelenideElement elementsButton = $x("(//div[@class='card mt-4 top-card'])[1]");

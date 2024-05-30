@@ -6,9 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenide.common_module.driver.EasyInicialisation.BaseSeleniumPage;
+import selenide.common_module.driver.BaseSeleniumPage;
 import selenide.common_module.property.PropertyHelper;
 
+// TODO переделать под selenide
 public class MainPageFindBY extends BaseSeleniumPage {
 
     protected final Logger logger = LogManager.getRootLogger();

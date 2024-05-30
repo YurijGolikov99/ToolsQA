@@ -1,4 +1,4 @@
-package selenide.common_module.data;
+package selenide.common_module.constants;
 
 public enum ElementsColor {
     BLUE_DEGREE("#007bff");

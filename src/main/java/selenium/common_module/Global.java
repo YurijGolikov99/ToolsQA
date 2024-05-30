@@ -1,6 +1,5 @@
 package selenium.common_module;
 
-
 import selenium.common_module.property.PropertyHelper;
 
 //5 Создали глобальные константы и настройки

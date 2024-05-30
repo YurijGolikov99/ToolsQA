@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 import selenide.common_module.data.Credentials;
-import selenide.common_module.driver.EasyInicialisation.BaseSeleniumTest;
+import selenide.common_module.driver.BaseSeleniumTest;
 import selenide.ui_module.pages.MainPageFindBY;
 import selenide.ui_module.pages.book_store_application.BookStorePage;
 import selenide.ui_module.steps.book_store_application.BookStorePageSteps;

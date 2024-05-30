@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import selenium.api_module.steps.boock_store_application.BookStoreRegistrationCommonSteps;
+import selenium.api_module.steps.book_store_application.BookStoreRegistrationCommonSteps;
 import selenium.ui_module.constants.UiEndpoints;
 import selenium.ui_module.pages.book_store_application.BookStorePage;
 import selenium.ui_module.steps.book_store_application.BookStoreStepsUI;
