@@ -4,12 +4,12 @@ import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import selenide.api_module.constants.ApiEndpoints;
-import selenium.api_module.data.book_store_application.BadRegistrationResponse;
-import selenium.api_module.data.book_store_application.BooksData;
-import selenium.api_module.data.book_store_application.RegistrationRequest;
-import selenium.api_module.data.book_store_application.RegistrationResponse;
-import selenium.common_module.Specifications;
-import selenium.common_module.data.Credentials;
+import selenide.api_module.data.book_store_application.BadRegistrationResponse;
+import selenide.api_module.data.book_store_application.BooksObjects;
+import selenide.api_module.data.book_store_application.RegistrationRequest;
+import selenide.api_module.data.book_store_application.RegistrationResponse;
+import selenide.common_module.Specifications;
+import selenide.common_module.data.Credentials;
 
 import java.util.List;
 
@@ -17,9 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 //шаги связанные с POJO классами
-public class BookStoreRegistrationCommonSteps {
-
-    private static ApiEndpoints apiEndpoints = new ApiEndpoints();
+public class BookStoreRegistrationSteps {
 
     private static final String LOGIN = Credentials.USER_LOGIN.getProperty();
     private static final String PASSWORD = Credentials.USER_PASSWORD.getProperty();
@@ -112,8 +110,8 @@ public class BookStoreRegistrationCommonSteps {
     }
 
     @Step("Проверили список книг в API")
-    public List<BooksData> getBooksListInApiByTitle(){
-        List<BooksData> booksData = given()
+    public List<BooksObjects> getBooksListInApiByTitle(){
+        List<BooksObjects> booksData = given()
                 .when()
                 .contentType(ContentType.JSON)
                 .get(ApiEndpoints.getBookStoreUrl())

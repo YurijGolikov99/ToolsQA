@@ -7,16 +7,16 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import selenium.api_module.steps.book_store_application.BookStoreRegistrationCommonSteps;
+import selenium.common_module.driver.hard_initialization.DriverProvider;
 import selenium.ui_module.constants.UiEndpoints;
 import selenium.ui_module.pages.book_store_application.BookStorePage;
 import selenium.ui_module.steps.book_store_application.BookStoreStepsUI;
+import selenium_tests.BaseTest;
 
-public class BookStoreTestsUi {
+public class BookStoreTestsUi extends BaseTest {
 
-    private final BookStoreRegistrationCommonSteps bookStoreCommonSteps = new BookStoreRegistrationCommonSteps();
     private final BookStoreStepsUI bookStoreStepsUI = new BookStoreStepsUI();
-    private final BookStorePage bookStorePage = new BookStorePage();
+    private final BookStorePage bookStorePage = new BookStorePage(DriverProvider.getDriver());
 
     @DisplayName("Проверка соответствия списков книг")
     @AllureId("")
@@ -27,9 +27,7 @@ public class BookStoreTestsUi {
 //    @Layer(AllureLayer.SYSTEM_TESTS)
     @Test
     public void testListComplianceCheck(){
-        bookStoreCommonSteps.getBooksListInApiByTitle();
-        bookStorePage.openPage(UiEndpoints.BOOK_STORE_PAGE.getUrl()); /* Открываем страницу */
-        bookStoreStepsUI.checkBooksListOnPageByTitle();
+        bookStorePage.openPage(UiEndpoints.BOOK_STORE_PAGE.getUrl());
         bookStoreStepsUI.compareListsOfBooks();
     }
 }

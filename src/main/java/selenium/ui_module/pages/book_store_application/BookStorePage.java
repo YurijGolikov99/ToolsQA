@@ -1,33 +1,44 @@
 package selenium.ui_module.pages.book_store_application;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import selenium.ui_module.pages.BasePage;
 
-import static com.codeborne.selenide.Selenide.$x;
-
-// TODO переделать под селениум,
-//  так как здесь всё в корне на селениде держится
 /**
- *4. Элементы страницы bookStoreApplication
+ * 4. Элементы страницы bookStoreApplication
  */
-public class BookStorePage  {
+public class BookStorePage extends BasePage {
 
-    private final SelenideElement loginButton = $x("//button[@id=\"login\"]");
-    private final SelenideElement gitPocketGuideBookTitle = $x("//span[@id='see-book-Git Pocket Guide']");
-    private final SelenideElement learningJavaScriptDesigTitle = $x("//span[@id='see-book-Learning JavaScript Design Patterns']");
-    private final SelenideElement designingEvolvableWebAPIsTitle = $x("//span[@id='see-book-Designing Evolvable Web APIs with ASP.NET']");
-    private final SelenideElement speakingJavaScriptTitle = $x("//span[@id='see-book-Speaking JavaScript']");
+    @FindBy(xpath = "//button[@id=\"login\"]")
+    private WebElement loginButton;
+    @FindBy(xpath = "//span[@id='see-book-Git Pocket Guide']")
+    private WebElement gitPocketGuideBookTitle;
+    @FindBy(xpath = "//span[@id='see-book-Learning JavaScript Design Patterns']")
+    private WebElement learningJavaScriptDesignTitle;
+    @FindBy(xpath = "//span[@id='see-book-Designing Evolvable Web APIs with ASP.NET']")
+    private WebElement designingEvolvableWebAPIsTitle;
+    @FindBy(xpath = "//span[@id='see-book-Speaking JavaScript']")
+    private WebElement speakingJavaScriptTitle;
     //дичь, которая не ищет элемент с одинарными кавычками)))
-    private final SelenideElement youDontKnowJSTitle = $x("//span[@id=\"see-book-You Don't Know JS\"]");
-    private final SelenideElement programmingJavaScriptApplicationsTitle = $x("//span[@id='see-book-Programming JavaScript Applications']");
-    private final SelenideElement eloquentJavaScriptSecondEditionTitle = $x("//span[@id='see-book-Eloquent JavaScript, Second Edition']");
-    private final SelenideElement understandingECMAScriptTitle = $x("//span[@id='see-book-Understanding ECMAScript 6']");
+    @FindBy(xpath = "//span[@id=\"see-book-You Don't Know JS\"]")
+    private WebElement youDontKnowJSTitle;
+    @FindBy(xpath = "//span[@id='see-book-Programming JavaScript Applications']")
+    private WebElement programmingJavaScriptApplicationsTitle;
+    @FindBy(xpath = "//span[@id='see-book-Eloquent JavaScript, Second Edition']")
+    private WebElement eloquentJavaScriptSecondEditionTitle;
+    @FindBy(xpath = "//span[@id='see-book-Understanding ECMAScript 6']")
+    private WebElement understandingECMAScriptTitle;
 
-    public void openPage(String url) {
-        Selenide.open(url);
+    public BookStorePage(WebDriver driver) {
+        super(driver);
     }
 
-    public SelenideElement getLoginButton(){
+    public void openPage(String url) {
+        driver.get(url);
+    }
+
+    public WebElement getLoginButton(){
         return loginButton;
     }
 
@@ -36,7 +47,7 @@ public class BookStorePage  {
     }
 
     public String getLearningJavaScriptDesignTitle() {
-        return learningJavaScriptDesigTitle.getText();
+        return learningJavaScriptDesignTitle.getText();
     }
 
     public String getDesigningEvolvableWebAPIsTitle() {

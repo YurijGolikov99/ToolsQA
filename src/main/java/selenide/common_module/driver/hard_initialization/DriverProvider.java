@@ -1,11 +1,17 @@
 package selenide.common_module.driver.hard_initialization;
 
+import org.junit.After;
+import org.junit.Before;
+
 public class DriverProvider {
-    public static void setupDriver() {
+
+    @Before
+    public void setupDriver() {
         SelenideConfig.setup();
     }
 
-    public static void tearDown() {
+    @After
+    public void tearDown() {
         SelenideConfig.tearDown();
     }
 }

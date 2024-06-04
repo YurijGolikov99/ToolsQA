@@ -6,11 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenide.common_module.driver.easy_initialization.BaseSeleniumPage;
 import selenide.common_module.property.PropertyHelper;
 
-// TODO переделать под selenide
-public class MainPageFindBY extends BaseSeleniumPage {
+public class MainPageFindBY  {
 
     protected final Logger logger = LogManager.getRootLogger();
     private WebDriver driver;
@@ -29,7 +27,6 @@ public class MainPageFindBY extends BaseSeleniumPage {
     private WebElement bookStoreApplicationButton;
 
     public MainPageFindBY(){
-        this.driver = BaseSeleniumPage.driver;
         logger.info("Open page");
         driver.get(PropertyHelper.getProperty("base.url"));
         PageFactory.initElements(driver, this);

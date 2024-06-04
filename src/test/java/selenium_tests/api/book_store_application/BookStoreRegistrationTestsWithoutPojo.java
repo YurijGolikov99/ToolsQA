@@ -1,11 +1,11 @@
 package selenium_tests.api.book_store_application;
 
 import org.junit.Test;
-import selenium.api_module.steps.book_store_application.BookStoreRegistrationCommonStepsNoPojo;
+import selenium.api_module.steps.book_store_application.BookStoreRegistrationStepsNoPojo;
 
 public class BookStoreRegistrationTestsWithoutPojo {
 
-    private final BookStoreRegistrationCommonStepsNoPojo bookStoreCommonStepsNoPojo = new BookStoreRegistrationCommonStepsNoPojo();
+    private final BookStoreRegistrationStepsNoPojo bookStoreCommonStepsNoPojo = new BookStoreRegistrationStepsNoPojo();
 
     @Test
     public void testSuccessRegistrationWithoutPojoClass(){

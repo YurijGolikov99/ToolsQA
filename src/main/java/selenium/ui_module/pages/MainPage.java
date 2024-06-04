@@ -1,55 +1,50 @@
 package selenium.ui_module.pages;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import static com.codeborne.selenide.Selenide.$x;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-// TODO переделать под селениум,
-//  так как здесь всё в корне на селениде держится
-/**
- * 2.Эллементы главной страница Demoqa.com
- */
-public class MainPage {
+public class MainPage extends BasePage {
 
-    private final SelenideElement elementsButton = $x("(//div[@class='card mt-4 top-card'])[1]");
-    private final SelenideElement formsButton = $x("(//div[@class='card mt-4 top-card'])[2]");
-    private final SelenideElement alertFrameWindowsButton = $x("(//div[@class='card mt-4 top-card'])[3]");
-    private final SelenideElement widgetsButton = $x("(//div[@class='card mt-4 top-card'])[4]");
-    private final SelenideElement interactionsButton = $x("(//div[@class='card mt-4 top-card'])[5]");
-    private final SelenideElement bookStoreApplicationButton = $x("(//div[@class='card mt-4 top-card'])[6]");
+    //указали путь до элементов
+    @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[1]")
+    private WebElement elementsButton;
+    @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[2]")
+    private WebElement formsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[3]")
+    private WebElement alertFrameWindowsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[4]")
+    private WebElement widgetsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[5]")
+    private WebElement interactionsButton;
+    @FindBy(xpath =  "(//div[@class='card mt-4 top-card'])[6]")
+    private WebElement bookStoreApplicationButton;
 
-    //создали конструктору страницы, который настраивает наш класс
-    public MainPage(String url){
-        Selenide.open(url);
+    public MainPage(WebDriver driver){
+        super(driver);
     }
 
-    //тоже самое, что и выше
-    public void openWebSite(String url){
-        Selenide.open(url);
-    }
-
-    // Геттеры для элементов страницы
-    public SelenideElement getElementsButton(){
+    public WebElement getElementsButton(){
         return elementsButton;
     }
 
-    public SelenideElement getFormsButton(){
+    public WebElement getFormsButton(){
         return formsButton;
     }
 
-    public SelenideElement getAlertFrameWindowsButton(){
+    public WebElement getAlertFrameWindowsButton(){
         return alertFrameWindowsButton;
     }
 
-    public SelenideElement getWidgetsButton(){
+    public WebElement getWidgetsButton(){
         return widgetsButton;
     }
 
-    public SelenideElement getInteractionsButton(){
+    public WebElement getInteractionsButton(){
         return interactionsButton;
     }
 
-    public SelenideElement getBookStoreApplicationButton(){
-        return bookStoreApplicationButton.scrollTo();
+    public WebElement getBookStoreApplicationButton(){
+        return bookStoreApplicationButton;
     }
 }

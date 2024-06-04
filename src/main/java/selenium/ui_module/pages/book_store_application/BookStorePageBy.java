@@ -1,15 +1,14 @@
 package selenium.ui_module.pages.book_store_application;
 
-import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.ui_module.pages.BasePage;
 
-public class BookStorePageBy {
+public class BookStorePageBy extends BasePage  {
 
-    private WebDriver driver;
     private WebDriverWait wait;
 
     private final By loginButton = By.xpath("//button[@id=\"login\"]");
@@ -23,8 +22,8 @@ public class BookStorePageBy {
     private final By eloquentJavaScriptSecondEditionTitle = By.xpath("//span[@id='see-book-Eloquent JavaScript, Second Edition']");
     private final By understandingECMAScriptTitle = By.xpath("//span[@id='see-book-Understanding ECMAScript 6']");
 
-    public void openPage(String url) {
-        Selenide.open(url);
+    public BookStorePageBy(WebDriver driver) {
+        super(driver);
     }
 
     public WebElement getLoginButton() {

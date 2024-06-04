@@ -7,11 +7,13 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import selenide.api_module.steps.book_store_application.BookStoreRegistrationCommonSteps;
+import selenide.api_module.steps.book_store_application.BookStoreAuthorisationSteps;
+import selenide.api_module.steps.book_store_application.BookStoreRegistrationSteps;
 
 public class BookStoreRegistrationTests {
 
-    private final BookStoreRegistrationCommonSteps bookStoreCommonSteps = new BookStoreRegistrationCommonSteps();
+    private final BookStoreRegistrationSteps bookStoreRegistrationSteps = new BookStoreRegistrationSteps();
+    private final BookStoreAuthorisationSteps bookStoreAuthorisationSteps = new BookStoreAuthorisationSteps();
 
     //перед повторным запуском, стоит удалить пользователя
     @DisplayName("Успешная регистрация с валидными данными")
@@ -23,25 +25,32 @@ public class BookStoreRegistrationTests {
 //    @Layer(AllureLayer.SYSTEM_TESTS)
     @Test
     public void testSuccessRegistrationWithValidDate(){
-        bookStoreCommonSteps.enterValidDataDuringRegistration();
+        bookStoreRegistrationSteps.enterValidDataDuringRegistration();
     }
 
+    //дубль такого же теста как и выше
     @Test
     public void testSuccessRegistrationWithValidDate2(){
-        bookStoreCommonSteps.enterValidDataDuringRegistrationWithSpec();
+        bookStoreRegistrationSteps.enterValidDataDuringRegistrationWithSpec();
     }
 
     @Test
     public void testUnSuccessRegistration(){
-        bookStoreCommonSteps.enterInvalidDataDuringRegistration();
+        bookStoreRegistrationSteps.enterInvalidDataDuringRegistration();
     }
 
     @Test
-    public void loginWithValidDate(){
+    public void testGenerateToken(){
+        bookStoreAuthorisationSteps.generateUserToken();
     }
 
     @Test
-    public void deleteUsers(){
+    public void testLoginWithValidDate(){
+        bookStoreAuthorisationSteps.validAuthorisation();
+    }
+
+    @Test
+    public void testDeleteUsers(){
 
     }
 }
