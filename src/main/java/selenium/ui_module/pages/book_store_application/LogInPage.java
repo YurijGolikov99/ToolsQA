@@ -1,34 +1,48 @@
 package selenium.ui_module.pages.book_store_application;
 
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.ui_module.pages.BasePage;
 
-import static com.codeborne.selenide.Selenide.$x;
+import java.time.Duration;
 
-// TODO переделать под селениум,
-//  так как здесь всё в корне на селениде держится
 /**
  *6.Элементы страницы LogIn
  */
-public class LogInPage  {
+public class LogInPage extends BasePage {
 
-    private final SelenideElement userNameField = $x("//input[@id='userName']");
-    private final SelenideElement passwordField = $x("//input[@id='password']");
-    private final SelenideElement loginButton = $x("//button[@id=\"login\"]");
-    private final SelenideElement newUserButton = $x("//button[@id='newUser']");
+    private final WebDriverWait wait;
 
-    public SelenideElement getUserNameField(){
-        return userNameField;
+    private final By userNameField = By.xpath("//input[@id='userName']");
+    private final By passwordField = By.xpath("//input[@id='password']");
+    private final By loginButton = By.xpath("//button[@id=\"login\"]");
+    private final By newUserButton = By.xpath("//button[@id='newUser']");
+
+    public LogInPage(WebDriver driver) {
+        super(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public SelenideElement getPasswordField(){
-        return passwordField;
+    public void openPage(String url) {
+        driver.get(url);
     }
 
-    public SelenideElement getLoginButton(){
-        return loginButton;
+    public WebElement getUserNameField(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(userNameField));
     }
 
-    public SelenideElement getNewUserButton(){
-        return newUserButton;
+    public WebElement getPasswordField(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
+    }
+
+    public WebElement getLoginButton(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
+    }
+
+    public WebElement getNewUserButton(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(newUserButton));
     }
 }

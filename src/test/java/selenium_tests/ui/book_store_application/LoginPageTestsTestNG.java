@@ -2,12 +2,13 @@ package selenium_tests.ui.book_store_application;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import selenium.common_module.property.PropertyHelper;
 import selenium.ui_module.steps.MainPageSteps;
 import selenium.ui_module.steps.book_store_application.BookStoreCommonStepsUI;
 import selenium.ui_module.steps.book_store_application.LoginPageSteps;
-import selenide.common_module.property.PropertyHelper;
+import selenium_tests.BaseTest;
 
-public class LoginPageTestsTestNG {
+public class LoginPageTestsTestNG extends BaseTest {
 
     private final MainPageSteps mainPageSteps = new MainPageSteps();
     private final BookStoreCommonStepsUI bookStoreCommonStepsUI = new BookStoreCommonStepsUI();

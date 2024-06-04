@@ -5,9 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-
-// Создали класс для чтения значений из файла свойств в формате key-value.
-// В данном случае файл свойств называется "project_data.properties"
+/**
+ * 4) Создали класс для чтения значений из файла свойств в формате key-value.
+ *  В данном случае файл свойств называется "project_data.properties"
+ */
 public class PropertyHelper {
 
     private static final String PROPERTIES_PATH = "src/main/resources/project_data.properties";

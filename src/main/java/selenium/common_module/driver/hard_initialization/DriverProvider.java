@@ -15,7 +15,7 @@ public class DriverProvider {
         return driver;
     }
 
-    public static void tearDown() {
+    public static void closeDriver() {
         if (driver != null) {
             driver.close();
             driver.quit();

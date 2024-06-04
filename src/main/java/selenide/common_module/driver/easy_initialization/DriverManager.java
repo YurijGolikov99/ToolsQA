@@ -1,4 +1,4 @@
-package selenium.common_module.driver;
+package selenide.common_module.driver.easy_initialization;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 
 //более простой вариант объявления вебдрайвера
+
 /**
  *1.настройка, инициализация и установка браузера
  */

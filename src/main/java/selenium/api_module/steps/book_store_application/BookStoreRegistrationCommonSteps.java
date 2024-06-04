@@ -9,7 +9,7 @@ import selenium.api_module.data.book_store_application.RegistrationRequest;
 import selenium.api_module.data.book_store_application.RegistrationResponse;
 import selenium.api_module.data.book_store_application.BooksData;
 import selenium.common_module.Specifications;
-import selenium.common_module.data.Credentials;
+import selenide.common_module.data.Credentials;
 
 import java.util.List;
 

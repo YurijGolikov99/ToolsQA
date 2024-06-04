@@ -2,6 +2,9 @@ package selenide.api_module.data.book_store_application;
 
 import java.util.Date;
 
+/**
+ * конвертируем JSON в Java на сайте POJO https://json2csharp.com/code-converters/json-to-pojo и копируем сюда
+*/
 abstract public class BooksObjects {
 
     private String isbn;

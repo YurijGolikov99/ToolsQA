@@ -1,40 +1,29 @@
 package selenide.ui_module.pages.book_store_application;
 
-import selenide.common_module.driver.easy_initialization.BaseSeleniumPage;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import com.codeborne.selenide.SelenideElement;
 
-// TODO переделать под selenide
-public class LoginPage extends BaseSeleniumPage {
+import static com.codeborne.selenide.Selenide.$x;
 
-    @FindBy(xpath = "//input[@id=\"userName\"]")
-    private WebElement userNameField;
-    @FindBy(xpath = "//input[@id=\"password\"]")
-    private WebElement passwordField;
-    @FindBy(xpath =  "//button[@id=\"login\"]")
-    private WebElement loginButton;
+public class LoginPage {
 
-    public LoginPage() {
-        PageFactory.initElements(driver, this);
-    }
+    private final SelenideElement userNameField = $x("//input[@id=\"userName\"]");
+    private final SelenideElement passwordField = $x("//input[@id=\"password\"]");
+    private final SelenideElement loginButton = $x("//button[@id=\"login\"]");
+    private final SelenideElement newUserButton = $x("//button[@id='newUser']");
 
-    public WebElement getUserNameField(){
+    public SelenideElement getUserNameField(){
         return userNameField;
     }
 
-    public WebElement getPasswordField(){
+    public SelenideElement getPasswordField(){
         return passwordField;
     }
 
-    public WebElement getLoginButton(){
+    public SelenideElement getLoginButton(){
         return loginButton;
     }
 
-    public LoginPage auth(String userName, String password){
-        userNameField.sendKeys(userName);
-        passwordField.sendKeys(password);
-        loginButton.click();
-        return new LoginPage();
+    public SelenideElement getNewUserButton(){
+        return newUserButton;
     }
 }

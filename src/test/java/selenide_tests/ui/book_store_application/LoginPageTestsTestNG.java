@@ -2,12 +2,13 @@ package selenide_tests.ui.book_store_application;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import selenide.common_module.driver.hard_initialization.DriverProvider;
 import selenide.common_module.property.PropertyHelper;
-import selenium.ui_module.steps.MainPageSteps;
-import selenium.ui_module.steps.book_store_application.BookStoreCommonStepsUI;
-import selenium.ui_module.steps.book_store_application.LoginPageSteps;
+import selenide.ui_module.steps.MainPageSteps;
+import selenide.ui_module.steps.book_store_application.BookStoreCommonStepsUI;
+import selenide.ui_module.steps.book_store_application.LoginPageSteps;
 
-public class LoginPageTestsTestNG {
+public class LoginPageTestsTestNG extends DriverProvider {
 
     private final MainPageSteps mainPageSteps = new MainPageSteps();
     private final BookStoreCommonStepsUI bookStoreCommonStepsUI = new BookStoreCommonStepsUI();

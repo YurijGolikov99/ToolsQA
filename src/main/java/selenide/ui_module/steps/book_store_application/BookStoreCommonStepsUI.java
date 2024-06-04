@@ -1,11 +1,11 @@
 package selenide.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
-import selenium.ui_module.pages.book_store_application.BookStorePageFindBy;
+import selenide.ui_module.pages.book_store_application.BookStorePage;
 
-public class BookStorePageSteps {
+public class BookStoreCommonStepsUI {
 
-    private final BookStorePageFindBy bookStorePage = new BookStorePageFindBy();
+    private final BookStorePage bookStorePage = new BookStorePage();
 
     @Step("Открыть страницу логин")
     public void openLoginPage(){
