@@ -2,7 +2,7 @@ package selenide.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
 import selenide.api_module.data.book_store_application.BooksObjects;
-import selenide.api_module.steps.book_store_application.BookStoreRegistrationSteps;
+import selenide.api_module.steps.book_store_application.BookStoreCommonSteps;
 import selenide.ui_module.pages.book_store_application.BookStorePage;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class BookStoreStepsUI {
-    private final BookStoreRegistrationSteps bookStoreCommonSteps = new BookStoreRegistrationSteps();
+    private final BookStoreCommonSteps bookStoreCommonSteps = new BookStoreCommonSteps();
     private final BookStorePage bookStorePage = new BookStorePage();
 
     @Step("Проверили список книг на UI")

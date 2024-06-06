@@ -1,8 +1,10 @@
 package selenide_tests.ui.book_store_application;
 
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Issue;
+import io.qameta.allure.Owner;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -19,12 +21,14 @@ public class BookStoreTestsUi extends DriverProvider {
     private final BookStorePage bookStorePage = new BookStorePage();
 
     @DisplayName("Проверка соответствия списков книг")
-    @AllureId("")
+    @Description("Открываем страницу, делаем выборку на апи, а после сравниваем API и UI")
+    @AllureId("1")
     @Issue("IDF-T2")
     @Tags({@Tag("UI"), @Tag("IM_SERVICE"), @Tag("SMOKE")})
     @Epic("Книжный магазин")
 //    @Service(AllureServiceConstants.IM_MONITORING_SERVICE)
 //    @Layer(AllureLayer.SYSTEM_TESTS)
+    @Owner("Юра Голиков")
     @Test
     public void testListComplianceCheck(){
         bookStorePage.openPage(UiEndpoints.BOOK_STORE_PAGE.getUrl());

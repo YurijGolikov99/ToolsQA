@@ -4,14 +4,12 @@ import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import selenide.api_module.constants.ApiEndpoints;
-import selenide.api_module.data.book_store_application.BadRegistrationResponse;
-import selenide.api_module.data.book_store_application.BooksObjects;
+import selenide.api_module.data.book_store_application.BadResponse;
+import selenide.api_module.data.book_store_application.DeleteUser;
 import selenide.api_module.data.book_store_application.RegistrationRequest;
 import selenide.api_module.data.book_store_application.RegistrationResponse;
 import selenide.common_module.Specifications;
 import selenide.common_module.data.Credentials;
-
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -79,7 +77,7 @@ public class BookStoreRegistrationSteps {
         Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getRegisterUrl()),
                 Specifications.responseSpecificationBadRequest(ApiEndpoints.getRegisterUrl()));
         RegistrationRequest testUser = new RegistrationRequest(WRONG_LOGIN, WRONG_PASSWORD);
-        BadRegistrationResponse unSuccessResponse = given()
+        BadResponse unSuccessResponse = given()
                 .body(testUser)
                 .when()
                 .post(ApiEndpoints.getRegisterUrl())
@@ -88,42 +86,28 @@ public class BookStoreRegistrationSteps {
                 .log()
                 .all()
                 .extract()
-                .as(BadRegistrationResponse.class);
+                .as(BadResponse.class);
         assertEquals("Passwords must have at least one non alphanumeric character, " +
                         "one digit ('0'-'9'), one uppercase ('A'-'Z'), one lowercase ('a'-'z'), " +
                         "one special character and Password must be eight characters or longer.",
                 unSuccessResponse.getMessage());
     }
 
-    @Step("Получение токена")
-    public void generateTokenForUser(){
-
-    }
-
-    @Step("Авторизация с валидными данными")
-    public void authorizeUserWithValidDate(){
-
-    }
-
+    @Step("Удаление пользователя")
     public void deleteUser(){
-
-    }
-
-    @Step("Проверили список книг в API")
-    public List<BooksObjects> getBooksListInApiByTitle(){
-        List<BooksObjects> booksData = given()
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getDeleteUserUrl()),
+                Specifications.responseSpecificationNoContent(ApiEndpoints.getDeleteUserUrl()));
+        DeleteUser testUser = new DeleteUser(userID.get());
+        BadResponse response = given()
+                .body(testUser)
                 .when()
-                .contentType(ContentType.JSON)
-                .get(ApiEndpoints.getBookStoreUrl())
+                .post(ApiEndpoints.getDeleteUserUrl()+userID)
                 .then()
                 .assertThat()
-                .statusCode(200)
                 .log()
                 .all()
                 .extract()
-                .body()
-                .jsonPath()
-                .getList("books.title");
-        return booksData;
+                .as(BadResponse.class);
+        Assert.assertEquals("User has been delete", response.getMessage());
     }
 }

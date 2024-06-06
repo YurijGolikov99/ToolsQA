@@ -1,10 +1,9 @@
 package selenide.common_module.driver.hard_initialization;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import selenide.common_module.Global;
 import selenide.common_module.utils.TimeOuts;
-
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class SelenideConfig {
     public static void setup() {
@@ -28,6 +27,6 @@ public class SelenideConfig {
     }
 
     public static void tearDown() {
-        closeWebDriver();
+        Selenide.closeWebDriver();
     }
 }

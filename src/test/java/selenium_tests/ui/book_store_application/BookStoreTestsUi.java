@@ -3,6 +3,7 @@ package selenium_tests.ui.book_store_application;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Issue;
+import io.qameta.allure.Owner;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -25,6 +26,7 @@ public class BookStoreTestsUi extends BaseTest {
     @Epic("Книжный магазин")
 //    @Service(AllureServiceConstants.IM_MONITORING_SERVICE)
 //    @Layer(AllureLayer.SYSTEM_TESTS)
+    @Owner("Андрей Драмарецкий")
     @Test
     public void testListComplianceCheck(){
         bookStorePage.openPage(UiEndpoints.BOOK_STORE_PAGE.getUrl());
