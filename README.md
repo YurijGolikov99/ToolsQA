@@ -83,7 +83,7 @@
 
 *************************
 
-: # (### Run all tests: "mvn clean test -DsuiteXml=bookStoreAllTests -Dconfig=bookstore")
+[//]: # (### Run all tests: "mvn clean test -DsuiteXml=bookStoreAllTests -Dconfig=bookstore")
 
 [//]: # ()
 [//]: # (### Run Selenium tests: "mvn clean test -DsuiteXml=bookStoreSelenium -Dconfig=bookstore")
