@@ -38,6 +38,12 @@ public class Specifications {
                 .build();
     }
 
+    public static ResponseSpecification responseSpecificationNoContent(String url){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(204)
+                .build();
+    }
+
     public static ResponseSpecification responseSpecificationBadRequest(String url){
         return new ResponseSpecBuilder()
                 .expectStatusCode(400)

@@ -7,7 +7,7 @@ package selenide.api_module.data.book_store_application;
  * }
  */
 
-public class BadRegistrationResponse {
+public class BadResponse {
 
         private int code;
         private String message;

@@ -28,12 +28,6 @@ public class BookStoreRegistrationTests {
         bookStoreRegistrationSteps.enterValidDataDuringRegistration();
     }
 
-    //дубль такого же теста как и выше
-    @Test
-    public void testSuccessRegistrationWithValidDate2(){
-        bookStoreRegistrationSteps.enterValidDataDuringRegistrationWithSpec();
-    }
-
     @Test
     public void testUnSuccessRegistration(){
         bookStoreRegistrationSteps.enterInvalidDataDuringRegistration();
@@ -51,6 +45,12 @@ public class BookStoreRegistrationTests {
 
     @Test
     public void testDeleteUsers(){
+        bookStoreRegistrationSteps.deleteUser();
+    }
 
+    //дубль такого же теста как и выше
+    @Test
+    public void testSuccessRegistrationWithValidDate2(){
+        bookStoreRegistrationSteps.enterValidDataDuringRegistrationWithSpec();
     }
 }

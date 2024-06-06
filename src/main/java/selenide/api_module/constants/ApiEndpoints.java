@@ -6,7 +6,7 @@ public class ApiEndpoints {
     //https://demoqa.com/swagger/#/Account/AccountV1GenerateTokenPost
     private static final String GENERATE_TOKEN_URL = "https://demoqa.com/Account/v1/GenerateToken";
     private static final String REGISTER_URL = "https://demoqa.com/Account/v1/User";
-    private static final String DELETE_USER_URL = "https://demoqa.com/Account/v1/User/{UUID}";
+    private static final String DELETE_USER_URL = "https://demoqa.com/Account/v1/User/";
     private static final String BOOK_STORE_URL = "https://demoqa.com/BookStore/v1/Books";
 
     public static String getAuthorisationUrl() {
