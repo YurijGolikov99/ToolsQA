@@ -24,6 +24,10 @@ public class MainPage extends BasePage {
         super(driver);
     }
 
+    public void openPage(String url) {
+        driver.get(url);
+    }
+
     public WebElement getElementsButton(){
         return elementsButton;
     }

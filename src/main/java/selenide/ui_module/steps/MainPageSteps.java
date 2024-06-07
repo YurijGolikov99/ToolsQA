@@ -1,16 +1,10 @@
 package selenide.ui_module.steps;
 
-import selenide.ui_module.constants.UiEndpoints;
 import selenide.ui_module.pages.MainPage;
 
 public class MainPageSteps {
 
-    private final MainPage mainPage;
-
-    // Конструктор по умолчанию
-    public MainPageSteps() {
-        this.mainPage = new MainPage(UiEndpoints.BASE_URL.getUrl());
-    }
+    private final MainPage mainPage = new MainPage();
 
     // Методы для взаимодействия с элементами страницы
     public void clickElementsButton(){

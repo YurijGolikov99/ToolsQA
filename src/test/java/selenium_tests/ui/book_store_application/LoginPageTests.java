@@ -1,8 +1,9 @@
 package selenium_tests.ui.book_store_application;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import selenium.common_module.driver.hard_initialization.DriverProvider;
 import selenium.common_module.property.PropertyHelper;
+import selenium.ui_module.constants.UiEndpoints;
 import selenium.ui_module.pages.MainPage;
 import selenium.ui_module.steps.MainPageSteps;
 import selenium.ui_module.steps.book_store_application.BookStoreCommonStepsUI;
@@ -19,6 +20,7 @@ public class LoginPageTests extends BaseTest {
 
     @Test
     public void testAuthorisationWithValidDate(){
+        mainPage.openPage(UiEndpoints.BASE_URL.getUrl());
         mainPageSteps.clickBookStoreApplication();
         bookStoreCommonStepsUI.openLoginPage();
         loginPageSteps.authorisation(PropertyHelper.getProperty("login.user"), PropertyHelper.getProperty("password.user"));
