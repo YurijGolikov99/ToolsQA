@@ -22,12 +22,10 @@ public class BookStoreTestsUi extends BaseTest {
 
     @DisplayName("Проверка соответствия списков книг")
     @Description("Открываем страницу, делаем выборку на апи, а после сравниваем API и UI")
-    @AllureId("7")
+    @AllureId("8")
     @Issue("IDF-T2")
     @Tags({@Tag("UI"), @Tag("IM_SERVICE"), @Tag("SMOKE")})
     @Epic("Книжный магазин")
-//    @Service(AllureServiceConstants.IM_MONITORING_SERVICE)
-//    @Layer(AllureLayer.SYSTEM_TESTS)
     @Owner("Юра Голиков")
     @Test
     public void testListComplianceCheck(){

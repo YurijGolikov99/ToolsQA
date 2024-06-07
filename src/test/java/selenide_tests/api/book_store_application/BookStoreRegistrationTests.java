@@ -35,10 +35,10 @@ public class BookStoreRegistrationTests {
         bookStoreRegistrationSteps.enterValidDataDuringRegistration();
     }
 
-    @DisplayName("")
-    @Description("")
+    @DisplayName("Регистрация с невалидными данными")
+    @Description("Отправили ендпоинт с телом из двух одинаковых строк")
     @AllureId("3")
-    @Issue("")
+    @Issue("BooStSelReg-52824")
     @Tags({@Tag("API"), @Tag("BOOK_STORE"), @Tag("SMOKE")})
     @Epic("Книжный магазин")
     @Owner("Юра Голиков")
@@ -48,10 +48,10 @@ public class BookStoreRegistrationTests {
         bookStoreRegistrationSteps.enterInvalidDataDuringRegistration();
     }
 
-    @DisplayName("")
-    @Description("")
+    @DisplayName("Генерация токена")
+    @Description("Токен генерируется после регистрации")
     @AllureId("4")
-    @Issue("")
+    @Issue("BooStSelReg-52824")
     @Tags({@Tag("API"), @Tag("BOOK_STORE"), @Tag("SMOKE")})
     @Epic("Книжный магазин")
     @Owner("Юра Голиков")
@@ -61,10 +61,10 @@ public class BookStoreRegistrationTests {
         bookStoreAuthorisationSteps.generateUserToken();
     }
 
-    @DisplayName("")
-    @Description("")
+    @DisplayName("Залогиниться с валидными данными")
+    @Description("Регистрация пользователя проходит успешно с валидными данными")
     @AllureId("5")
-    @Issue("")
+    @Issue("BooStSelReg-52824")
     @Tags({@Tag("API"), @Tag("BOOK_STORE"), @Tag("SMOKE")})
     @Epic("Книжный магазин")
     @Owner("Юра Голиков")
@@ -74,10 +74,10 @@ public class BookStoreRegistrationTests {
         bookStoreAuthorisationSteps.validAuthorisation();
     }
 
-    @DisplayName("")
-    @Description("")
+    @DisplayName("Удалить пользователя")
+    @Description("Удаляем пользователя и все его данные")
     @AllureId("6")
-    @Issue("")
+    @Issue("BooStSelReg-52824")
     @Tags({@Tag("API"), @Tag("BOOK_STORE"), @Tag("SMOKE")})
     @Epic("Книжный магазин")
     @Owner("Юра Голиков")
@@ -89,7 +89,7 @@ public class BookStoreRegistrationTests {
 
     //дубль такого же теста как и выше
     @DisplayName("Успешная регистрация с валидными данными")
-    @Description("Отправили ендпоинт с телом из двух строк")
+    @Description("Отправили ендпоинт с телом из двух строк но уже с использованием спецификаций")
     @AllureId("2")
     @Issue("BooStSelReg-52824")
     @Tags({@Tag("API"), @Tag("BOOK_STORE"), @Tag("SMOKE")})
