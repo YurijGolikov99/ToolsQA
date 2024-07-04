@@ -37,10 +37,12 @@ abstract public class BooksObjects {
         this.website = website;
     }
 
+    // геттеры, чтобы получить это поле
     public String getIsbn() {
         return isbn;
     }
 
+    // сеттеры, чтобы изменить это поле
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }

@@ -9,11 +9,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import selenide.ui_module.constants.UiEndpoints;
+import selenide.ui_module.constants.BookStoreUiEndpoints;
 import selenide.ui_module.pages.book_store_application.BookStorePage;
 import selenide.ui_module.steps.book_store_application.BookStoreStepsUI;
 import selenide_tests.BaseTest;
-
 
 public class BookStoreTestsUi extends BaseTest {
 
@@ -29,7 +28,7 @@ public class BookStoreTestsUi extends BaseTest {
     @Owner("Юра Голиков")
     @Test
     public void testListComplianceCheck(){
-        bookStorePage.openPage(UiEndpoints.BOOK_STORE_PAGE.getUrl());
+        bookStorePage.openPage(BookStoreUiEndpoints.BOOK_STORE_PAGE.getUrl());
         bookStoreStepsUI.compareListsOfBooks();
     }
 }
