@@ -1,6 +1,6 @@
 package selenide.ui_module.constants;
 
-public enum UiEndpoints {
+public enum BookStoreUiEndpoints {
 
     BASE_URL("https://demoqa.com"),
     LOGIN("https://demoqa.com/login"),
@@ -10,7 +10,7 @@ public enum UiEndpoints {
 
     private final String url;
 
-    UiEndpoints(String url) {
+    BookStoreUiEndpoints(String url) {
         this.url = url;
     }
 

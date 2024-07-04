@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import selenide.common_module.data.Credentials;
-import selenide.ui_module.constants.UiEndpoints;
+import selenide.ui_module.constants.BookStoreUiEndpoints;
 import selenide.ui_module.pages.MainPage;
 import selenide.ui_module.steps.MainPageSteps;
 import selenide.ui_module.steps.book_store_application.BookStoreCommonStepsUI;
@@ -36,7 +36,7 @@ public class LoginPageTests extends BaseTest {
     @Owner("Юра Голиков")
     @Test
     public void testAuthorisationWithValidDate(){
-        mainPage.openPage(UiEndpoints.BASE_URL.getUrl());
+        mainPage.openPage(BookStoreUiEndpoints.BASE_URL.getUrl());
         mainPageSteps.clickBookStoreApplication();
         bookStoreCommonStepsUI.openLoginPage();
         loginPageSteps.authorisation(Credentials.USER_LOGIN.getProperty(), Credentials.USER_PASSWORD.getProperty());
