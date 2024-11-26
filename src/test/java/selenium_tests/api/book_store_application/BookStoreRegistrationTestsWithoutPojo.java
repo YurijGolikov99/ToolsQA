@@ -1,6 +1,6 @@
 package selenium_tests.api.book_store_application;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import selenium.api_module.steps.book_store_application.BookStoreRegistrationStepsNoPojo;
 
 public class BookStoreRegistrationTestsWithoutPojo {

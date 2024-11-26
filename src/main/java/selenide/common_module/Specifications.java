@@ -1,5 +1,6 @@
 package selenide.common_module;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -7,10 +8,12 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import selenide.api_module.utils.rest.ResponseBodyParser;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static selenium.common_module.logs.LoggerHelper.info;
 
@@ -20,6 +23,7 @@ public class Specifications {
     //базовая спецификация к запросу на JSON
     public static RequestSpecification requestSpecification(String url){
         return new RequestSpecBuilder()
+                .addFilter(new AllureRestAssured())
                 .setBaseUri(url)
                 .setContentType(ContentType.JSON)
                 .build();
@@ -80,11 +84,11 @@ public class Specifications {
                 String.format("Actual status code is %d and it's not equal to expected: %d", response.getStatusCode(), expectedStatusCode));
     }
 
-//    public void checkThatResponseBodyIsNotEmpty(Response response) {
-//        info("Check that {%s} response body is not empty",
-//                String.valueOf(ResponseBodyParser.getResponseBodyAsString(response).isEmpty()));
-//        assertFalse(ResponseBodyParser.getResponseBodyAsString(response).isEmpty(), "Response body is empty");
-//    }
+    public void checkThatResponseBodyIsNotEmpty(Response response) {
+        info("Check that {%s} response body is not empty",
+                String.valueOf(ResponseBodyParser.getResponseBodyAsString(response).isEmpty()));
+        assertFalse(ResponseBodyParser.getResponseBodyAsString(response).isEmpty(), "Response body is empty");
+    }
 
     public void checkThatAllElementsContainsValue(List<List<String>> elements, String value) {
         info("Check that value {%s} presented in the collection", value);
