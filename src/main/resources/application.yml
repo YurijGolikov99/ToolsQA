@@ -1,0 +1,42 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  kafka:
+    bootstrap-servers: localhost:9092
+#    НАСТРОЙКИ СЕРТИФИКАТОВ БЕЗОПАСНОСТИ
+#    security:
+#      protocol: SSL
+#    ssl:
+#      key-store-location:
+#      key-store-type:
+#      key-store-password:
+#      key-password:
+#      trust-store-location:
+#      trust-store-type:
+#      trust-store-password:
+    consumer:
+      group-id: autotest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      max-poll-records: 100
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties.enable.idempotence: false
+
+    datasource:
+      dbname:
+        username: dbname_database_admin
+        password:
+        jdbcUrl:
+      gateway:
+        username: gateway_admin
+        password:
+        jdbcUrl:
+
+# Конфигурации контура dev
+service:
+  service-name:
+    host:
