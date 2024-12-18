@@ -2,6 +2,7 @@ package selenide.common_module.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.SneakyThrows;
 
 import java.io.File;
@@ -36,10 +37,16 @@ public class JsonUtils {
         return objectMapper.readTree(new File(filePath));
     }
 
+    //Читает JSON-файл и преобразует его в объект типа ObjectNode.
+    @SneakyThrows
+    public ObjectNode getObjectNodeFromFile(String filePath) {
+        return (ObjectNode) objectMapper.readTree(new File(filePath));
+    }
+
     /**
-     * Рекурсивный поиск поля на любом уровне вложенности в JSON.
+     * Рекурсивный поиск поля с указанным значением на любом уровне вложенности в JSON.
      *   Рекурсивно - означает, что метод или функция вызывает сам себя для решения более мелкой части той же задачи.
-     * @param node         текущий узел JSON
+     * @param node         текущий узел JSON (делается через метод getJsonNodeFromFile)
      * @param fieldName    имя искомого поля
      * @param expectedValue ожидаемое значение поля
      * @return true, если поле с заданным значением найдено
