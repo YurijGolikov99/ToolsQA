@@ -17,7 +17,6 @@ public class LoginPageTests extends BaseTest {
     private final BookStoreCommonStepsUI bookStoreCommonStepsUI = new BookStoreCommonStepsUI();
     private final LoginPageSteps loginPageSteps = new LoginPageSteps();
 
-
     @Test
     public void testAuthorisationWithValidDate(){
         mainPage.openPage(UiEndpoints.BASE_URL.getUrl());
