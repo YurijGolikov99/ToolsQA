@@ -1,5 +1,3 @@
-package selenium_tests;
-
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import selenium.common_module.data.ExcelDataProvider;
@@ -21,7 +19,7 @@ public class ExcelDataTests {
         };
     }
 
-    //то есть можно просто добавить столбец в екселе и добавить доп параметр в тесте,
+    //то есть можно просто добавить столбец в excele и добавить доп параметр в тесте,
     // и тест будет тогда уже обрабатывать больше данных
     @Test(dataProvider = "usersFromSheet", dataProviderClass = ExcelDataProvider.class)
     public void testWithExcel1(String userNumber, String userName, String surName){

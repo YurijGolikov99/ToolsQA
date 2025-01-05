@@ -5,10 +5,11 @@ import selenium.common_module.constants.ExcelPageNumber;
 
 public class ExcelDataProvider {
 
+    static final String path = "src/main/resources/names_data.xlsx";
+
     //брать данные с первого листа
     @DataProvider
     public Object[][] usersFromSheet() throws Exception {
-        String path = "src/main/resources/names_data.xlsx";
         ExcelReader excelReader = new ExcelReader(path);
         return excelReader.getSheetDataForTDD();
     }
@@ -19,7 +20,6 @@ public class ExcelDataProvider {
     //брать данные с выбранного нами листа
     @DataProvider
     public Object[][] usersFromSheet2() throws Exception {
-        String path = "src/main/resources/names_data.xlsx";
         ExcelReader excelReader = new ExcelReader(path, ExcelPageNumber.SECOND_SHEET.getSheet());
         return excelReader.getCustomSheetDataForTDD();
     }
