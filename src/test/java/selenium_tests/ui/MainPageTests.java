@@ -1,23 +1,23 @@
 package selenium_tests.ui;
 
-
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import selenium.ui_module.constants.UiEndpoints;
 import selenium.ui_module.steps.MainPageSteps;
 import selenium_tests.BaseTest;
 
 /**
  *3. Тесты главной страницы
  */
-
-//DriverManager - будет открываться и закрываться каждый раз браузер
-//DriverProvider - всё будет прогоняться сплошными тестами в одном окне
-public class MainPageTests extends BaseTest { //DriverManager или DriverProvider
-
-    public final static String BASE_URL = UiEndpoints.BASE_URL.getUrl();
+public class MainPageTests extends BaseTest {
 
     //вызывается конструктор, с помощью использования ключевого слова new.
-    private final MainPageSteps mainPageSteps = new MainPageSteps();
+    private MainPageSteps mainPageSteps;
+
+    @BeforeMethod
+    public void init() {
+        // В этот момент driver уже создан в BaseTest.beforeClass()
+        mainPageSteps = new MainPageSteps(this.driver);
+    }
 
     @Test
     public void openElementsPage(){

@@ -18,7 +18,6 @@ public class MainPage {
     private final SelenideElement interactionsButton = $x("(//div[@class='card mt-4 top-card'])[5]");
     private final SelenideElement bookStoreApplicationButton = $x("(//div[@class='card mt-4 top-card'])[6]");
 
-    //тоже самое, что и выше
     @Step("Открыть главную страницу")
     public void openPage(String url){
         Selenide.open(url);

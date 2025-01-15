@@ -3,8 +3,9 @@ package selenium_tests;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import selenium.common_module.driver.hard_initialization.DriverProvider;
 import selenium.common_module.property.PropertyHelper;
@@ -13,30 +14,31 @@ import selenium.common_module.property.PropertyHelper;
 public class BaseTest {
 
     protected final Logger logger = LogManager.getRootLogger();
-    protected static WebDriver driver;
+    protected WebDriver driver; // Не используем static, чтобы каждый тест имел свой экземпляр
     private final String BASE_URL = PropertyHelper.getProperty("base.url");
 
     @BeforeSuite
     public void beforeSuit() {
+        logger.info("Setting up suite configuration.");
         System.setProperty("log4j.configurationFile", PropertyHelper.getProperty("log.config.file"));
     }
 
-    @BeforeClass
-    public void beforeClass() {
-        driver = DriverProvider.getDriver();
+    //DriverManager - будет открываться и закрываться каждый раз браузер
+    @BeforeMethod
+    public void beforeMethod() {
+        driver = DriverProvider.getDriver(); // Инициализируем драйвер перед каждым тестом
         logger.info("Open url: " + BASE_URL);
-        driver.get(BASE_URL);
+        driver.get(BASE_URL); // Переходим на базовый URL
     }
 
-    @AfterClass
-    public void afterClass() {
-        logger.info("Tear down driver");
-        DriverProvider.closeDriver();
+    @AfterMethod
+    public void afterMethod() {
+        logger.info("Closing WebDriver after test method.");
+            DriverProvider.closeDriver();
     }
 
-//    @AfterSuite
-//    public void afterSuite() {
-//        logger.info("Tear down driver");
-//        DriverProvider.closeDriver();
-//    }
+    @AfterSuite
+    public void afterSuite() {
+        logger.info("All tests completed. Resources cleaned up.");
+    }
 }

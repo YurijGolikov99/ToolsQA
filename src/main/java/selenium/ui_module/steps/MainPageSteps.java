@@ -1,11 +1,15 @@
 package selenium.ui_module.steps;
 
-import selenium.common_module.driver.hard_initialization.DriverProvider;
+import org.openqa.selenium.WebDriver;
 import selenium.ui_module.pages.MainPage;
 
 public class MainPageSteps {
 
-    private final MainPage mainPage = new MainPage(DriverProvider.getDriver());
+    private MainPage mainPage;
+
+    public MainPageSteps(WebDriver driver) {
+        this.mainPage = new MainPage(driver);
+    }
 
     // Методы для взаимодействия с элементами страницы
     public void clickElementsButton(){

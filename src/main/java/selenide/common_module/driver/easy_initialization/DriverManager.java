@@ -12,6 +12,7 @@ import org.junit.Before;
  *1.настройка, инициализация и установка браузера
  */
 
+//DriverManager - будет открываться и закрываться каждый раз браузер
 public class DriverManager {
 
     @Before

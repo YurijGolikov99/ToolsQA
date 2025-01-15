@@ -187,19 +187,6 @@
         </dependency>
 
         <!-- Библиотеки для логирования -->
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j-simple.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -211,6 +198,13 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
+            <version>${logging.log4j.version}</version>
+        </dependency>
+
+        <!-- Мост SLF4J для Log4j 2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
             <version>${logging.log4j.version}</version>
         </dependency>
 
@@ -361,27 +355,53 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <!--
+                     Подключаем AspectJ-агент (для @Step, @Attachment и др. аннотаций Allure)
+                     + Дополнительные настройки тест-ранов:
+                   -->
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
                     </argLine>
+                    <!-- Если нет тестов, сборка не будет падать -->
                     <failIfNoTests>false</failIfNoTests>
+                    <!-- Если тесты упадут, сборка всё равно будет продолжаться -->
                     <testFailureIgnore>true</testFailureIgnore>
+                    <!--
+                     Ключевая часть: перечисляем провайдеры, которые нужно использовать.
+                     junit-platform -> для JUnit 4/5
+                     testng         -> для TestNG
+                   -->
+                    <providers>
+                        <provider>
+                            <name>junit-platform</name>
+                        </provider>
+                        <provider>
+                            <name>testng</name>
+                        </provider>
+                    </providers>
                     <properties>
+                        <!--
+                          Чтобы Allure собирал результаты и от JUnit, и от TestNG,
+                          можно указать оба слушателя через запятую:
+                        -->
                         <property>
                             <name>listener</name>
-                            <value>io.qameta.allure.junit5.AllureJunit5</value>
+                            <value>io.qameta.allure.testng.AllureTestNg, io.qameta.allure.junit5.AllureJunit5</value>
                         </property>
                     </properties>
+                    <!-- Указываем, куда складывать allure-results -->
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
                             <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
+                    <!-- Передаём системные переменные для Selenide (headless и пр.) -->
                     <systemPropertyVariables>
                         <selenide.headless>true</selenide.headless>
                     </systemPropertyVariables>
                 </configuration>
+                <!-- Зависимость на AspectJ (для аннотаций Allure) -->
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>

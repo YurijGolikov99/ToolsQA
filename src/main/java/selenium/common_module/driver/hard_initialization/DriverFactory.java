@@ -14,24 +14,37 @@ import static selenium.common_module.utils.TimeOuts.PAGE_LOAD_TIMEOUT;
 //7 создали порядок и настройки объявления веб-драйвера
 public class DriverFactory {
 
-    static WebDriver launchDriver() {
-        WebDriver driver;
+    public static WebDriver launchDriver() {
+        // Создаем драйвер через выбор нужного браузера
+        WebDriver driver = getDriverByType();
+
+        // Настройка драйвера
+        configureDriver(driver);
+
+        return driver;
+    }
+
+    private static WebDriver getDriverByType() {
+        BrowserLauncher launcher;
+
         if (WEBDRIVER_TYPE.equalsIgnoreCase(CHROME_NAME)) {
-            driver = ChromeLauncher.createDriver();
+            launcher = new ChromeLauncher();
         } else if (WEBDRIVER_TYPE.equalsIgnoreCase(FIREFOX_NAME)) {
-            driver = FirefoxLauncher.createDriver();
+            launcher = new FirefoxLauncher();
         } else if (WEBDRIVER_TYPE.equalsIgnoreCase(SAFARI_NAME)) {
-            driver = SafariLauncher.createDriver();
+            launcher = new SafariLauncher();
         } else {
-            // Если не указан Chrome, Firefox или Safari, можно выбрать другой драйвер по умолчанию
-            // Например, можно использовать Chrome
-            driver = ChromeLauncher.createDriver();
+            throw new IllegalArgumentException("Unsupported browser type: " + WEBDRIVER_TYPE);
         }
 
+        return launcher.createDriver();
+    }
+
+    private static void configureDriver(WebDriver driver) {
         driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(ELEMENT_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().timeouts().setScriptTimeout(ELEMENT_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        return driver;
     }
 }
+
