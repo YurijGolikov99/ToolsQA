@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.SneakyThrows;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,8 +38,13 @@ public class JsonUtils {
         return objectMapper.readTree(new File(filePath));
     }
 
-    //Читает JSON-файл и преобразует его в объект типа ObjectNode.
-    @SneakyThrows
+    /**
+     * Читает JSON-файл, используя указанный файловый путь.
+     * Этот метод предназначен для чтения файла напрямую из файловой системы.
+     * @param filePath абсолютный или относительный путь к файлу на диске.
+     * @return преобразованный в ObjectNode объект JSON из файла.
+     * @throws IOException если файл не найден или произошла ошибка при чтении файла.
+     */    @SneakyThrows
     public ObjectNode getObjectNodeFromFile(String filePath) {
         return (ObjectNode) objectMapper.readTree(new File(filePath));
     }

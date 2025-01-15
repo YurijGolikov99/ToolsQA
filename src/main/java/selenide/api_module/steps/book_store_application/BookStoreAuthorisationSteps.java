@@ -13,8 +13,8 @@ import static io.restassured.RestAssured.given;
 
 public class BookStoreAuthorisationSteps {
 
-    private static final String LOGIN = Credentials.USER_LOGIN.getProperty();
-    private static final String PASSWORD = Credentials.USER_PASSWORD.getProperty();
+    private static final String LOGIN = Credentials.TEST_USERNAME;
+    private static final String PASSWORD = Credentials.TEST_USERNAME;
     private static final ThreadLocal<String> token = new ThreadLocal<>();
 
     @Step("Генерация токена новому пользователю")

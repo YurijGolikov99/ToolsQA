@@ -1,18 +1,23 @@
 package selenide_tests.ui;
 
-import org.junit.Test;
-import selenium.ui_module.constants.UiEndpoints;
-import selenium.ui_module.steps.MainPageSteps;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import selenide.ui_module.constants.BookStoreUiEndpoints;
+import selenide.ui_module.pages.MainPage;
+import selenide_tests.BaseTest;
+import selenide.ui_module.steps.MainPageSteps;
 
-// TODO разобраться с DriverManger и DriverProvider
-//DriverManager - будет открываться и закрываться каждый раз браузер
-//DriverProvider - всё будет прогоняться сплошными тестами в одном окне
-public class MainPageTests { //DriverManager или DriverProvider
+public class MainPageTests extends BaseTest {
 
-    public final static String BASE_URL = UiEndpoints.BASE_URL.getUrl();
+    public final static String BASE_URL = BookStoreUiEndpoints.BASE.getUrl();
+    private MainPageSteps mainPageSteps;
 
-    //вызывается конструктор, с помощью использования ключевого слова new.
-    private final MainPageSteps mainPageSteps = new MainPageSteps();
+    @BeforeEach
+    public void setUpEachTest() {
+        MainPage mainPage = new MainPage();
+        mainPage.openPage(BASE_URL);
+        mainPageSteps = new MainPageSteps();
+    }
 
     @Test
     public void openElementsPage(){

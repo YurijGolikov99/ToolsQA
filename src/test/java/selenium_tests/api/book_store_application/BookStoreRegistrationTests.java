@@ -11,13 +11,12 @@ public class BookStoreRegistrationTests {
     private final BookStoreRegistrationCommonSteps bookStoreCommonSteps = new BookStoreRegistrationCommonSteps();
 
     //перед повторным запуском, стоит удалить пользователя
-//    @DisplayName("Успешная регистрация с валидными данными")
     @AllureId("")
     @Issue("")
     @Epic("Книжный магазин")
 //    @Service(AllureServiceConstants.IM_MONITORING_SERVICE)
 //    @Layer(AllureLayer.SYSTEM_TESTS)
-    @Test
+    @Test(description = "Успешная регистрация с валидными данными")
     public void testSuccessRegistrationWithValidDate(){
         bookStoreCommonSteps.enterValidDataDuringRegistration();
     }
@@ -29,6 +28,7 @@ public class BookStoreRegistrationTests {
 
     @Test
     public void loginWithValidDate(){
+
     }
 
     @Test

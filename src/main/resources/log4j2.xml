@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
+<Configuration status="WARN">
     <Appenders>
-        <Console name="Console">
-            <File name="File" fileName="target/logs/logsHistory.log">
-                <PatternLayout>
-                    <Pattern>%d %p %c{2} [%t] %l %m%n</Pattern>
-                </PatternLayout>
-            </File>
+        <!-- Логи в консоль -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c{1} - %msg%n</Pattern>
+            </PatternLayout>
         </Console>
+
+        <!-- Логи в файл -->
+        <RollingFile name="RollingFile" fileName="target/logs/logsHistory.log"
+                     filePattern="target/logs/logsHistory-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c{1} - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+        </RollingFile>
     </Appenders>
+
     <Loggers>
-        <Root level="trace">
+        <!-- Логи для специфического пакета -->
+        <Logger name="selenium.ui_module.pages" level="debug" additivity="false">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+
+        <!-- Логи по умолчанию -->
+        <Root level="info">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
+            <AppenderRef ref="RollingFile"/>
         </Root>
     </Loggers>
 </Configuration>

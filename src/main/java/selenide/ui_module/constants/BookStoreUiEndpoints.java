@@ -2,7 +2,7 @@ package selenide.ui_module.constants;
 
 public enum BookStoreUiEndpoints {
 
-    BASE_URL("https://demoqa.com"),
+    BASE("https://demoqa.com"),
     LOGIN("https://demoqa.com/login"),
     REGISTER("https://demoqa.com/register"),
     PROFILE("https://demoqa.com/profile"),

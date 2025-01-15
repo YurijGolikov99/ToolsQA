@@ -1,12 +1,16 @@
 package selenium.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
-import selenium.common_module.driver.hard_initialization.DriverProvider;
+import org.openqa.selenium.WebDriver;
 import selenium.ui_module.pages.book_store_application.BookStorePage;
 
 public class BookStoreCommonStepsUI {
 
-    private final BookStorePage bookStorePage = new BookStorePage(DriverProvider.getDriver());
+    private BookStorePage bookStorePage;
+
+    public BookStoreCommonStepsUI(WebDriver driver) {
+        this.bookStorePage = new BookStorePage(driver);
+    }
 
     @Step("Открыть страницу логин")
     public void openLoginPage(){

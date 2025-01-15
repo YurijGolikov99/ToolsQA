@@ -9,7 +9,7 @@ import selenide.api_module.data.book_store_application.DeleteUser;
 import selenide.api_module.data.book_store_application.RegistrationRequest;
 import selenide.api_module.data.book_store_application.RegistrationResponse;
 import selenide.common_module.Specifications;
-import selenide.common_module.data.Credentials;
+import selenium.common_module.data.CredentialsFromProperties;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -17,10 +17,10 @@ import static org.junit.Assert.assertEquals;
 //шаги связанные с POJO классами
 public class BookStoreRegistrationSteps {
 
-    private static final String LOGIN = Credentials.USER_LOGIN.getProperty();
-    private static final String PASSWORD = Credentials.USER_PASSWORD.getProperty();
-    private static final String WRONG_LOGIN = Credentials.WRONG_LOGIN.getProperty();
-    private static final String WRONG_PASSWORD = Credentials.WRONG_PASSWORD.getProperty();
+    private static final String LOGIN = CredentialsFromProperties.USER_LOGIN.getProperty();
+    private static final String PASSWORD = CredentialsFromProperties.USER_PASSWORD.getProperty();
+    private static final String WRONG_LOGIN = CredentialsFromProperties.WRONG_LOGIN.getProperty();
+    private static final String WRONG_PASSWORD = CredentialsFromProperties.WRONG_PASSWORD.getProperty();
 
     private static final ThreadLocal<String> userID = new ThreadLocal<>();
 

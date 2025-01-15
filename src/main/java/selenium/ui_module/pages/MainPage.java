@@ -26,6 +26,7 @@ public class MainPage extends BasePage {
 
     public void openPage(String url) {
         driver.get(url);
+        logger.info("Navigating to: {}", url);
     }
 
     public WebElement getElementsButton(){

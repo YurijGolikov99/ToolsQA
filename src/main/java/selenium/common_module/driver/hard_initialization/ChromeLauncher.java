@@ -5,9 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 //1 Создали веб-драйвер для chrome
-public class ChromeLauncher {
+public class ChromeLauncher implements BrowserLauncher {
 
-    public static WebDriver createDriver() {
+    @Override
+    public WebDriver createDriver() {
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
