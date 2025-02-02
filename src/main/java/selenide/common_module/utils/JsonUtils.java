@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.SneakyThrows;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,27 +34,37 @@ public class JsonUtils {
         return objectMapper.writeValueAsString(json);
     }
 
-    //Читает JSON-файл и преобразует его в объект типа JsonNode.
+    /**
+     * Читает JSON-файл, доступный в classpath приложения, используя Spring Framework.
+     * Этот метод подходит для чтения ресурсов, упакованных внутри JAR или доступных через classpath.
+     * Особенно полезен в больших и распределенных приложениях, где файлы могут быть размещены в разных местах.
+     * @param fileName имя файла в classpath.
+     * @param context контекст приложения Spring, используемый для поиска ресурсов.
+     * @return преобразованный в ObjectNode объект JSON из найденного ресурса.
+     * @throws IOException если ресурсы не найдены или произошла ошибка при чтении.
+     */
     @SneakyThrows
-    public JsonNode getJsonNodeFromFile(String filePath) {
-        return objectMapper.readTree(new File(filePath));
+    public ObjectNode getObjectNodeFromFile(String fileName, ApplicationContext context) {
+        Resource[] resources = context.getResources("classpath*://" + fileName);
+        if (resources.length == 0) {
+            System.out.printf("Файл '%s' не найден%n", fileName);
+        }
+        return (ObjectNode) objectMapper.readTree(resources[0].getURL());
+    }
+
+    @SneakyThrows
+    public File getFileByName(String fileName, ApplicationContext context) {
+        Resource[] resources = context.getResources("classpath*://" + fileName);
+        if (resources.length == 0) {
+            System.out.printf("Файл '%s' не найден%n", fileName);
+        }
+        return resources[0].getFile();
     }
 
     /**
-     * Читает JSON-файл, используя указанный файловый путь.
-     * Этот метод предназначен для чтения файла напрямую из файловой системы.
-     * @param filePath абсолютный или относительный путь к файлу на диске.
-     * @return преобразованный в ObjectNode объект JSON из файла.
-     * @throws IOException если файл не найден или произошла ошибка при чтении файла.
-     */    @SneakyThrows
-    public ObjectNode getObjectNodeFromFile(String filePath) {
-        return (ObjectNode) objectMapper.readTree(new File(filePath));
-    }
-
-    /**
-     * Рекурсивный поиск поля с указанным значением на любом уровне вложенности в JSON.
+     * Рекурсивный поиск поля на любом уровне вложенности в JSON.
      *   Рекурсивно - означает, что метод или функция вызывает сам себя для решения более мелкой части той же задачи.
-     * @param node         текущий узел JSON (делается через метод getJsonNodeFromFile)
+     * @param node         текущий узел JSON
      * @param fieldName    имя искомого поля
      * @param expectedValue ожидаемое значение поля
      * @return true, если поле с заданным значением найдено
