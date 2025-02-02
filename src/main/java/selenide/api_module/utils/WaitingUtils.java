@@ -4,14 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.awaitility.Awaitility;
 import org.awaitility.core.ConditionTimeoutException;
 import org.awaitility.core.ThrowingRunnable;
-import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.concurrent.Callable;
 
 //методы для реализации механизма ожидания с использованием библиотеки Awaitility
 @Slf4j
-@Component
 public class WaitingUtils {
 
     //проверка наличия определенного состояния

@@ -6,14 +6,12 @@ import io.restassured.http.Method;
 import io.restassured.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.hamcrest.Matcher;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
 @Slf4j
-@Service
 public class RestRequest {
 
     public Response sendRestRequest(String baseUri, String endpoint, Map<String, String> headers, Method method,
