@@ -1,11 +1,11 @@
 package selenide.common_module.constants;
 
-public enum ElementsColor {
+public enum ElementsHexColor {
     BLUE_DEGREE("#007bff");
 
     private String color;
 
-    ElementsColor(String color) {
+    ElementsHexColor(String color) {
         this.color = color;
     }
 

@@ -1,4 +1,4 @@
-package selenide.common_module;
+package selenide.api_module.utils.rest;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;

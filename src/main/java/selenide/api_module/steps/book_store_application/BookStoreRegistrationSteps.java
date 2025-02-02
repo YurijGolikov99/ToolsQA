@@ -8,7 +8,7 @@ import selenide.api_module.data.book_store_application.BadResponse;
 import selenide.api_module.data.book_store_application.DeleteUser;
 import selenide.api_module.data.book_store_application.RegistrationRequest;
 import selenide.api_module.data.book_store_application.RegistrationResponse;
-import selenide.common_module.Specifications;
+import selenide.api_module.utils.rest.Specifications;
 import selenium.common_module.data.CredentialsFromProperties;
 
 import static io.restassured.RestAssured.given;
@@ -24,7 +24,7 @@ public class BookStoreRegistrationSteps {
 
     private static final ThreadLocal<String> userID = new ThreadLocal<>();
 
-    // если версия java compiler будет другая а не 11, то аннотация будет приводить к ошибке
+    // если версия java compiler будет другая, а не 11, то аннотация будет приводить к ошибке
     @Step("Ввод валидных данных при регистрации")
     public void enterValidDataDuringRegistration(){
         RegistrationRequest testUser = new RegistrationRequest(LOGIN, PASSWORD);

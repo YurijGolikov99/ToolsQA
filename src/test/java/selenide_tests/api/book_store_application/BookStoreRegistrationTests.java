@@ -5,6 +5,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Issue;
 import io.qameta.allure.Owner;
+import io.restassured.response.Response;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -12,14 +14,19 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import selenide.api_module.constants.ApiEndpoints;
 import selenide.api_module.steps.book_store_application.BookStoreAuthorisationSteps;
 import selenide.api_module.steps.book_store_application.BookStoreRegistrationSteps;
+import selenide.api_module.utils.rest.ApiResponseChecker;
+
+import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookStoreRegistrationTests {
 
-    private final BookStoreRegistrationSteps bookStoreRegistrationSteps = new BookStoreRegistrationSteps();
-    private final BookStoreAuthorisationSteps bookStoreAuthorisationSteps = new BookStoreAuthorisationSteps();
+    private BookStoreRegistrationSteps bookStoreRegistrationSteps = new BookStoreRegistrationSteps();
+    private BookStoreAuthorisationSteps bookStoreAuthorisationSteps = new BookStoreAuthorisationSteps();
+    private ApiResponseChecker apiResponseChecker = new ApiResponseChecker();
 
     //перед повторным запуском, стоит удалить пользователя
     @DisplayName("Успешная регистрация с валидными данными")
@@ -99,5 +106,22 @@ public class BookStoreRegistrationTests {
     @Order(6)
     public void testSuccessRegistrationWithValidDate2(){
         bookStoreRegistrationSteps.enterValidDataDuringRegistrationWithSpec();
+    }
+
+    @DisplayName("Успешная регистрация с валидными данными")
+    @Description("Отправили ендпоинт с телом из двух строк но уже с использованием спецификаций")
+    @AllureId("2")
+    @Issue("BooStSelReg-52824")
+    @Tags({@Tag("API"), @Tag("BOOK_STORE"), @Tag("SMOKE")})
+    @Epic("Книжный магазин")
+    @Owner("Юра Голиков")
+    @Test
+    @Disabled //используется для отключения теста, т.е. чтобы он не выполнялся при запуске тестов.
+    public void testSuccessRegistrationWithValidDate3(){
+        //сам тест не отрабатывает должным образом, так как передаем пост юрл а надо для гета
+        Response response = apiResponseChecker.httpGetRequestWithQueryParameters(
+                ApiEndpoints.getAuthorisationUrl(), null, List.of());
+        apiResponseChecker.checkForStatusCodeEquivalence(response, 200);
+        apiResponseChecker.checkThatResponseBodyIsNotEmpty(response);
     }
 }

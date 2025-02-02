@@ -6,7 +6,7 @@ import selenide.api_module.constants.ApiEndpoints;
 import selenide.api_module.data.book_store_application.GenerateTokenRequest;
 import selenide.api_module.data.book_store_application.GenerateTokenResponse;
 import selenide.api_module.data.book_store_application.RegistrationRequest;
-import selenide.common_module.Specifications;
+import selenide.api_module.utils.rest.Specifications;
 import selenide.common_module.data.Credentials;
 
 import static io.restassured.RestAssured.given;
