@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class BookStoreRegistrationStepsNoPojo {
 
-    private static final String REGISTER_URL = ApiEndpoints.REGISTER_PAGE.getUrl();
+    private static final String REGISTER_URL = ApiEndpoints.getRegisterUrl();
 
     private static final String LOGIN = Credentials.TEST_USERNAME;
     private static final String PASSWORD = Credentials.TEST_PASSWORD;

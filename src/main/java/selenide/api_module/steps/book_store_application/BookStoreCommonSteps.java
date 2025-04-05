@@ -3,7 +3,7 @@ package selenide.api_module.steps.book_store_application;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import selenide.api_module.constants.ApiEndpoints;
-import selenide.api_module.data.book_store_application.BooksObjects;
+import selenide.api_module.data.book_store_application_dto.BooksObjects;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class BookStoreCommonSteps {
         List<BooksObjects> booksData = given()
                 .when()
                 .contentType(ContentType.JSON)
-                .get(ApiEndpoints.getBookStoreUrl())
+                .get(ApiEndpoints.BOOKSTORE_PAGE.getUrl())
                 .then()
                 .assertThat()
                 .statusCode(200)

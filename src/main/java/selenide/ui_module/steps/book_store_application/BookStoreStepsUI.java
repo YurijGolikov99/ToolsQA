@@ -1,7 +1,7 @@
 package selenide.ui_module.steps.book_store_application;
 
 import io.qameta.allure.Step;
-import selenide.api_module.data.book_store_application.BooksObjects;
+import selenide.api_module.data.book_store_application_dto.BooksObjects;
 import selenide.api_module.steps.book_store_application.BookStoreCommonSteps;
 import selenide.ui_module.pages.book_store_application.BookStorePage;
 

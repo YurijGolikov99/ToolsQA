@@ -19,7 +19,6 @@ import selenide_tests.BaseTest;
 @Epic("ToolsQA")
 @Feature("Книжный магазин")
 @Story("Список книг")
-@DisplayName("")
 public class BookStoreTestsUi extends BaseTest {
 
     private final BookStoreStepsUI bookStoreStepsUI = new BookStoreStepsUI();

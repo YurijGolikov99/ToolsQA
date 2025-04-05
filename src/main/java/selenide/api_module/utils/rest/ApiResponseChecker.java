@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static selenium.common_module.logs.LoggerHelper.info;
+import static selenide.common_module.logs.LoggerHelper.info;
 
 public class ApiResponseChecker {
 
