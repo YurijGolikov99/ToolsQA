@@ -3,6 +3,7 @@ package selenium.ui_module.pages.book_store_application;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import selenium.api_module.constants.ApiEndpoints;
 import selenium.ui_module.pages.BasePage;
 
 /**
@@ -32,6 +33,7 @@ public class BookStorePage extends BasePage {
 
     public BookStorePage(WebDriver driver) {
         super(driver);
+        driver.get(String.valueOf(ApiEndpoints.getBookStoreUrl()));
     }
 
     public void openPage(String url) {

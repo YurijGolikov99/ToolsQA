@@ -118,9 +118,9 @@ public class BookStoreRegistrationTests {
     @Test
     @Disabled //используется для отключения теста, т.е. чтобы он не выполнялся при запуске тестов.
     public void testSuccessRegistrationWithValidDate3(){
-        //сам тест не отрабатывает должным образом, так как передаем пост юрл а надо для гета
+        //сам тест не отрабатывает должным образом, так как передаем юрл через post запрос, а надо для get
         Response response = apiResponseChecker.httpGetRequestWithQueryParameters(
-                ApiEndpoints.getAuthorisationUrl(), null, List.of());
+                ApiEndpoints.AUTHORISATION_URL.getUrl(), null, List.of());
         apiResponseChecker.checkForStatusCodeEquivalence(response, 200);
         apiResponseChecker.checkThatResponseBodyIsNotEmpty(response);
     }

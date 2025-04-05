@@ -19,8 +19,8 @@ import static org.junit.Assert.assertEquals;
 //шаги связанные с POJO классами
 public class BookStoreRegistrationCommonSteps {
 
-    private static final String BOOKSTORE_URL = ApiEndpoints.BOOKSTORE_PAGE.getUrl();
-    private static final String REGISTER_URL = ApiEndpoints.REGISTER_PAGE.getUrl();
+    private static final String BOOKSTORE_URL = ApiEndpoints.getBookStoreUrl();
+    private static final String REGISTER_URL = ApiEndpoints.getRegisterUrl();
 
     private static final String LOGIN = CredentialsFromProperties.USER_LOGIN.getProperty();
     private static final String PASSWORD = CredentialsFromProperties.USER_PASSWORD.getProperty();

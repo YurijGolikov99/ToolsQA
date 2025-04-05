@@ -19,7 +19,13 @@ public class BookStoreUiTests extends BaseTest {
     @Issue("IDF-T2")
     @Epic("Книжный магазин")
     @Owner("Андрей Драмарецкий")
-    @Test
+    @Test(description = "Проверка соответствия списков книг", //описание, тег аналог @DisplayName Junit
+//            enabled = true, //Проигнорировать в запуске, тег аналог @Disabled Junit
+            timeOut = 30000, //Задать время выполнения теста, тег аналог @Timeout Junit
+//            invocationCount = 3, //Задаем количества повторений теста, тег аналог @RepeatedTest
+            invocationTimeOut = 150000 //Задать общее время выполнения всех тестов
+
+    )
     public void testListComplianceCheck(){
         bookStorePage = new BookStorePage(this.driver);
         bookStorePage.openPage(UiEndpoints.BOOK_STORE_PAGE.getUrl());

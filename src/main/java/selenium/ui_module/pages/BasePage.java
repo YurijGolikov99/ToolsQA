@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.common_module.utils.TimeOuts;
 
 import java.time.Duration;
 
@@ -17,12 +18,9 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected final WebDriverWait wait;
 
-    private static final int TIMEOUT = 5;
-    private static final int POLLING = 100;
-
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT),   Duration.ofSeconds(POLLING));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(TimeOuts.ELEMENT_TIMEOUT),   Duration.ofSeconds(TimeOuts.POLLING));
         PageFactory.initElements(driver, this);
     }
 

@@ -1,0 +1,95 @@
+pipeline {
+    //запускаемся на любом агенте
+    agent any
+    //устанавливаем версию мавена, которую будем использовать
+    environment {
+        maven382 = tool name: 'maven-3.8.2', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+    }
+    //логика работы
+    stages {
+        //основная логика реализована на этапе tests
+        stage('Run tests') {
+            steps {
+                script {
+                    try {
+                        //определяемся с кредами для технического пользователя
+                        withCredentials([usernamePassword(credentialsId: "...", usernameVariable: '....', passwordVariable: '...')]) {
+                            //подсовываем файл с сетингами для мавена, чтобы мавен знал, из какого внутреннего хранилища подсовывать файл с сетингами
+                            configFileProvider([configFile(fileId: '35c21737-b8b6-4f71-8645-83908d6ce50c', variable: 'MAVEN_SETTINGS')]) {
+                                ////блок кода отвечает за общение с kubernets
+                                //Определяем консольную утилиту, для того чтобы в кубере какую-то команду выполнять
+                                def kubectlbin = tool name: "kubectl-1.14.5", type: "com.cloudbees.jenkins.plugins.customtools.CustomTool"
+                                //Сохраняем в переменную среды
+                                env.PATH = "${env.PATH}:${kubectlbin}"
+                                //создаём конфигурацию кластера
+                                sh "kubectl config set-cluster '...' '...' --insecure-skip-tls-verify"
+                                //создаем креды для нашего пользователя
+                                withCredentials([string(credentialsId: "...", variable: '...')]) {
+                                    sh "kubectl config set-credentials deploy-sa --token='${env.KUBE_TOKEN}'"
+                                }
+                                //определяемся с контекстом и непосредственно на этот контекст переключаемся
+                                sh "kubectl config set-context '...' --cluster='...' --user='deploy-sa' --namespace='...'"
+                                sh "kubectl config use-context '...'"
+
+                                ////блок относится к фильтрации тестов, если мы хотим их разбить на группу
+                                //создаем переменную
+                                def testGroups = ''
+
+                                //проверяем, если переменная, после того как мы подтянули параметры настроек проекта не = all
+                                if(params.TEST_GROUP != 'all') {
+                                    testGroups = params.TEST_GROUP
+                                    /*
+                                    берем то значение, в которое передаётся и выполняем команду для мавена,
+                                    говорим ему "Собрать" наш проект, передавая флаг Dgroups
+                                    (который отвечает, что тест помеченные определённой аннотацией запускались)
+                                    */
+                                    echo 'Test group for this build specified. Will ony run ' + testGroups.toString() + ' tests'
+                                    sh "${maven382}/bin/mvn -s $MAVEN_SETTINGS clean test -Dgroups=${testGroups}"
+                                } else {
+                                    //если же параметр all, то просто запускаем все тесты
+                                    sh "${maven382}/bin/mvn -s $MAVEN_SETTINGS clean test"
+                                }
+                            }
+                        }
+                    /*
+                    в конце этапа прогонов тестов, мы обрабатываем на всякий случай значения,
+                    которые могут возникнуть при подкачке данных на этапах
+                    */
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        echo currentBuild.result.toString()
+                        error 'Exception occurred: ' + e.toString()
+                    }
+                }
+            }
+        }
+        //этап - генерация аллюр отчетов
+        stage('Generate allure reports') {
+            steps {
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'target/allure-results']]
+                ])
+            }
+        }
+        //этап - сохранение аллюр отчетов в архив
+        stage('Generate report archive') {
+            steps {
+                zip([
+                    zipFile: "./allure-report.zip",
+                    dir: "target/allure-results"
+                ])
+                archiveArtifacts allowEmptyArchive: true, artifacts: 'allure-report.zip', defaultExcludes: false, fingerprint: true
+            }
+        }
+    }
+    //пост действие, зачистка рабочего места
+    post {
+        cleanup {
+            cleanWs()
+        }
+    }
+}

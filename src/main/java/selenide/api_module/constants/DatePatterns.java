@@ -7,6 +7,7 @@ public final class DatePatterns {
     public static final String DATE_WITH_TIME = "dd.MM.yyyy HH:mm";
     public static final String DATE_FORMAT_WITH_TIMEZONE = "yyyy-MM-ddX";
     public static final String DATE_FORMAT = "yyyy.MM.dd";
+
     public static final String DATETIME_FORMAT_WITHOUT_TIMEZONE = "yyyy-MM-dd'T'HH:mm:ss";
     public static final String DATETIME_FORMAT_WITHOUT_TIMEZONE_ = "yyyy-MM-dd'T'HH:mm:ss.SSS";
     public static final String DATETIME_FORMAT_ = "yyyy-MM-dd'T'HH:mm";

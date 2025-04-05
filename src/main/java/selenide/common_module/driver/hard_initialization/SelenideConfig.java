@@ -26,8 +26,8 @@ public class SelenideConfig {
             Configuration.browser = "chrome"; // Default browser
         }
 
-        Configuration.pageLoadTimeout = TimeOuts.PAGE_LOAD_TIMEOUT * 1000L;
-        Configuration.timeout = TimeOuts.ELEMENT_TIMEOUT * 1000L;
+        Configuration.pageLoadTimeout = TimeOuts.PAGE_LOAD_TIMEOUT.getTimeOut() * 1000L;
+        Configuration.timeout = TimeOuts.ELEMENT_TIMEOUT.getTimeOut() * 1000L;
         Configuration.browserSize = "1920x1080";
         //headless - без отрисовки интерфейса, по этому false
         Configuration.headless = false;

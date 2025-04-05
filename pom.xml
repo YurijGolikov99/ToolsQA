@@ -366,19 +366,6 @@
                     <failIfNoTests>false</failIfNoTests>
                     <!-- Если тесты упадут, сборка всё равно будет продолжаться -->
                     <testFailureIgnore>true</testFailureIgnore>
-                    <!--
-                     Ключевая часть: перечисляем провайдеры, которые нужно использовать.
-                     junit-platform -> для JUnit 4/5
-                     testng         -> для TestNG
-                   -->
-                    <providers>
-                        <provider>
-                            <name>junit-platform</name>
-                        </provider>
-                        <provider>
-                            <name>testng</name>
-                        </provider>
-                    </providers>
                     <properties>
                         <!--
                           Чтобы Allure собирал результаты и от JUnit, и от TestNG,
@@ -432,7 +419,7 @@
                             <outputDirectory>target/allure-results</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>srs/test/resources</directory>
+                                    <directory>src/test/resources</directory>
                                     <includes>
                                         <indclude>categories.json</indclude>
                                     </includes>

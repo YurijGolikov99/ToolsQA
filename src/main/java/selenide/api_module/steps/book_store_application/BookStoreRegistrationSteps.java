@@ -4,12 +4,12 @@ import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
 import selenide.api_module.constants.ApiEndpoints;
-import selenide.api_module.data.book_store_application.BadResponse;
-import selenide.api_module.data.book_store_application.DeleteUser;
-import selenide.api_module.data.book_store_application.RegistrationRequest;
-import selenide.api_module.data.book_store_application.RegistrationResponse;
+import selenide.api_module.data.book_store_application_dto.BadResponse;
+import selenide.api_module.data.book_store_application_dto.DeleteUser;
+import selenide.api_module.data.book_store_application_dto.RegistrationRequest;
+import selenide.api_module.data.book_store_application_dto.RegistrationResponse;
 import selenide.api_module.utils.rest.Specifications;
-import selenium.common_module.data.CredentialsFromProperties;
+import selenide.common_module.data.Credentials;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -17,10 +17,10 @@ import static org.junit.Assert.assertEquals;
 //шаги связанные с POJO классами
 public class BookStoreRegistrationSteps {
 
-    private static final String LOGIN = CredentialsFromProperties.USER_LOGIN.getProperty();
-    private static final String PASSWORD = CredentialsFromProperties.USER_PASSWORD.getProperty();
-    private static final String WRONG_LOGIN = CredentialsFromProperties.WRONG_LOGIN.getProperty();
-    private static final String WRONG_PASSWORD = CredentialsFromProperties.WRONG_PASSWORD.getProperty();
+    private static final String LOGIN = Credentials.TEST_USERNAME;
+    private static final String PASSWORD = Credentials.TEST_PASSWORD;
+    private static final String WRONG_LOGIN = Credentials.WRONG_LOGIN;
+    private static final String WRONG_PASSWORD = Credentials.WRONG_PASSWORD;
 
     private static final ThreadLocal<String> userID = new ThreadLocal<>();
 
@@ -32,7 +32,7 @@ public class BookStoreRegistrationSteps {
                 .body(testUser)
                 .when()
                 .contentType(ContentType.JSON)
-                .post(ApiEndpoints.getRegisterUrl())
+                .post(ApiEndpoints.REGISTER_URL.getUrl())
                 .then()
                 .assertThat()
                 .statusCode(201)
@@ -47,20 +47,16 @@ public class BookStoreRegistrationSteps {
         userID.set(success.getUserID());
     }
 
-    public String getUserID() {
-        return userID.get();
-    }
-
     //или можно вторым способом с использованием спецификаций
     @Step("Ввод валидных данных при регистрации")
     public void enterValidDataDuringRegistrationWithSpec(){
-        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getRegisterUrl()),
-                Specifications.responseSpecificationCreated(ApiEndpoints.getRegisterUrl()));
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.REGISTER_URL.getUrl()),
+                Specifications.responseSpecificationCreated(ApiEndpoints.REGISTER_URL.getUrl()));
         RegistrationRequest testUser = new RegistrationRequest(LOGIN, PASSWORD);
         RegistrationResponse successResponse = given()
                 .body(testUser)
                 .when()
-                .post(ApiEndpoints.getRegisterUrl())
+                .post(ApiEndpoints.REGISTER_URL.getUrl())
                 .then()
                 .assertThat()
                 .log()
@@ -74,13 +70,13 @@ public class BookStoreRegistrationSteps {
 
     @Step("Ввод невалидных данных при регистрации")
     public void enterInvalidDataDuringRegistration(){
-        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getRegisterUrl()),
-                Specifications.responseSpecificationBadRequest(ApiEndpoints.getRegisterUrl()));
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.REGISTER_URL.getUrl()),
+                Specifications.responseSpecificationBadRequest(ApiEndpoints.REGISTER_URL.getUrl()));
         RegistrationRequest testUser = new RegistrationRequest(WRONG_LOGIN, WRONG_PASSWORD);
         BadResponse unSuccessResponse = given()
                 .body(testUser)
                 .when()
-                .post(ApiEndpoints.getRegisterUrl())
+                .post(ApiEndpoints.REGISTER_URL.getUrl())
                 .then()
                 .assertThat()
                 .log()
@@ -95,13 +91,13 @@ public class BookStoreRegistrationSteps {
 
     @Step("Удаление пользователя")
     public void deleteUser(){
-        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.getDeleteUserUrl()),
-                Specifications.responseSpecificationNoContent(ApiEndpoints.getDeleteUserUrl()));
+        Specifications.installSpecification(Specifications.requestSpecification(ApiEndpoints.DELETE_USER_URL.getUrl()),
+                Specifications.responseSpecificationNoContent(ApiEndpoints.DELETE_USER_URL.getUrl()));
         DeleteUser testUser = new DeleteUser(userID.get());
         BadResponse response = given()
                 .body(testUser)
                 .when()
-                .post(ApiEndpoints.getDeleteUserUrl()+userID)
+                .post(ApiEndpoints.DELETE_USER_URL.getUrl()+userID)
                 .then()
                 .assertThat()
                 .log()
